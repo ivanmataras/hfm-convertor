@@ -7,7 +7,7 @@ package ru.hfm.console;
  * @since 06.04.2017
  */
 
-public interface Input {
+interface Input {
 
     String read();
 

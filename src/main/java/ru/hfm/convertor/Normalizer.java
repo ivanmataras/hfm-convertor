@@ -1,7 +1,12 @@
 package ru.hfm.convertor;
 
-/**
- * Created by Ivan on 06.04.2017.
+/*
+ * Class for normalizing input data
+ *
+ * @author imataras
+ * @since 06.04.2017
  */
-public class Normalizer {
+
+class Normalizer {
+
 }

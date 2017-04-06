@@ -10,7 +10,7 @@ import java.io.IOException;
  * @since 06.04.2017
  */
 
-public class ConsoleValidator implements Closeable {
+class ConsoleValidator implements Closeable {
 
     @Override
     public void close() throws IOException {

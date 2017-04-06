@@ -10,12 +10,12 @@ import java.util.Scanner;
  * @since 06.04.2017
  */
 
-public class ConsoleIO implements IO {
+class ConsoleIO implements IO {
 
     private final Scanner scanner;
     private final PrintStream out;
 
-    public ConsoleIO(final Scanner scanner, final PrintStream out) {
+    ConsoleIO(final Scanner scanner, final PrintStream out) {
         this.scanner = scanner;
         this.out = out;
     }

@@ -1,7 +1,12 @@
 package ru.hfm.convertor;
 
-/**
- * Created by Ivan on 06.04.2017.
+/*
+ * Class for writing output data
+ *
+ * @author imataras
+ * @since 06.04.2017
  */
-public class Writer {
+
+class Writer {
+
 }

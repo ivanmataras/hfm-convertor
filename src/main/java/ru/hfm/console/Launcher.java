@@ -1,13 +1,13 @@
 package ru.hfm.console;
 
+import ru.hfm.convertor.Convertor;
+
 /*
- * Main Class
+ * Main class
  *
  * @author imataras
  * @since 06.04.2017
  */
-
-import ru.hfm.convertor.Convertor;
 
 import java.util.Scanner;
 
@@ -16,7 +16,7 @@ public class Launcher {
     private final Convertor convertor;
     private final IO io;
 
-    public Launcher(final Convertor convertor, final IO io) {
+    Launcher(final Convertor convertor, final IO io) {
         this.convertor = convertor;
         this.io = io;
     }
