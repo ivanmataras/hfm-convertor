@@ -12,6 +12,12 @@ import java.io.IOException;
 
 class Validator implements Closeable {
 
+    private IO io;
+
+    public Validator(IO io) {
+        this.io = io;
+    }
+
     @Override
     public void close() throws IOException {
 

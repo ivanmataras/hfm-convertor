@@ -16,14 +16,14 @@ public class Launcher {
     private final Convertor convertor;
     private final IO io;
 
-    Launcher(final Convertor convertor, final IO io) {
+    Launcher(Convertor convertor, IO io) {
         this.convertor = convertor;
         this.io = io;
     }
 
     public void start() {
 
-        try (Validator validator = new Validator()) {
+        try (Validator validator = new Validator(io)) {
 
 
         } catch (Exception e) {
