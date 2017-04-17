@@ -21,9 +21,19 @@ public class Launcher {
         this.io = io;
     }
 
+    public void start() {
+
+        try (Validator validator = new Validator()) {
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) {
         System.out.println("Welcome to th main menu");
-        new Launcher(new Convertor(), new ConsoleIO(new Scanner(System.in), System.out));
+        new Launcher(new Convertor(), new ConsoleIO(new Scanner(System.in), System.out)).start();
     }
 
 }
