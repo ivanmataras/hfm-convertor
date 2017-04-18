@@ -41,8 +41,9 @@ public class Launcher {
                     String year = validator.getString("Enter year");
                     String month = validator.getString("Enter month");
 
-                    String SourceFMEntity = validator.getString("Enter cell adress for Source FM Entity ");
-
+                    validator.getString("Enter cell adress for Source FM Entity ");
+                    String columnNumberSourceFMEntity = validator.getString("Enter column number for Source FM Entity");
+                    String rowNumberSourceFMEntity = validator.getString("Enter row number for Source FM Entity");
 
                 } while (validator.exit("Do you want to continue? (y)", "y"));
 
