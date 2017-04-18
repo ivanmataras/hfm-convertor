@@ -22,12 +22,12 @@ class ConsoleIO implements IO {
 
     @Override
     public String read() {
-        return null;
+        return this.scanner.nextLine();
     }
 
     @Override
     public void println(Object value) {
-
+        this.out.println(value);
     }
 
 }

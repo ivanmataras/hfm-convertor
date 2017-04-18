@@ -29,12 +29,27 @@ public class Launcher {
 
         System.out.println("HFM convertor version 1.0.0.0 has started");
 
-        try (Validator validator = new Validator(io)) {
+            try (Validator validator = new Validator(io)) {
+
+                do {
+
+                    String inputFile = validator.getString("Enter file path for input data");
+                    String outputFile = validator.getString("Enter file path for output data");
+                    String sheetName = validator.getString("Enter sheet name");
+                    String sectionName = validator.getString("Enter section name");
+                    String scenario = validator.getString("Enter scenario");
+                    String year = validator.getString("Enter year");
+                    String month = validator.getString("Enter month");
 
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+                } while (validator.exit("Do you want to continue? (y)", "y"));
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+
+
     }
 
     public static void main(String[] args) {

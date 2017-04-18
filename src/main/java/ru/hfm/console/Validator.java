@@ -18,6 +18,16 @@ class Validator implements Closeable {
         this.io = io;
     }
 
+    public String getString(String message) {
+        System.out.print(message);
+        return this.io.read();
+    }
+
+    public boolean exit(String message, String answer) {
+        System.out.print(message);
+        return answer.equals(io.read());
+    }
+
     @Override
     public void close() throws IOException {
 
