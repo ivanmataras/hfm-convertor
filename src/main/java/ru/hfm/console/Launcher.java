@@ -41,17 +41,43 @@ public class Launcher {
                     String year = validator.getString("Enter year");
                     String month = validator.getString("Enter month");
 
-                    validator.getString("Enter cell adress for Source FM Entity ");
+                    System.out.println("Enter cell adress for Source FM Entity");
                     String columnNumberSourceFMEntity = validator.getString("Enter column number for Source FM Entity");
                     String rowNumberSourceFMEntity = validator.getString("Enter row number for Source FM Entity");
+
+                    System.out.println("Enter cell adress for Source FM Account");
+                    String columnNumberSourceFMAccount = validator.getString("Enter column number for Source FM Account");
+                    String rowNumberSourceFMAccount = validator.getString("Enter row number for Source FM Account");
+
+                    System.out.println("Enter cell adress for Source ICP");
+                    String columnNumberSourceICP = validator.getString("Enter column number for Source ICP");
+                    String rowNumberSourceICP = validator.getString("Enter row number for Source ICP");
+
+                    System.out.println("Enter cell adress for Source Custom1");
+                    String columnNumberSourceCustom1 = validator.getString("Enter column number for Source Custom1");
+                    String rowNumberSourceCustom1 = validator.getString("Enter row number for Source Custom1");
+
+                    System.out.println("Enter cell adress for Source Custom2");
+                    String columnNumberSourceCustom2 = validator.getString("Enter column number for Source Custom2");
+                    String rowNumberSourceCustom2 = validator.getString("Enter row number for Source Custom2");
+
+                    System.out.println("Enter cell adress for Source Custom3");
+                    String columnNumberSourceCustom3 = validator.getString("Enter column number for Source Custom3");
+                    String rowNumberSourceCustom3 = validator.getString("Enter row number for Source Custom3");
+
+                    System.out.println("Enter cell adress for Source Custom4");
+                    String columnNumberSourceCustom4 = validator.getString("Enter column number for Source Custom4");
+                    String rowNumberSourceCustom4 = validator.getString("Enter row number for Source Custom4");
+
+                    System.out.println("Enter cell adress for Amount");
+                    String columnNumberAmount = validator.getString("Enter column number for Amount");
+                    String rowNumberAmount = validator.getString("Enter row number for Amount");
 
                 } while (validator.exit("Do you want to continue? (y)", "y"));
 
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
-
 
     }
 
