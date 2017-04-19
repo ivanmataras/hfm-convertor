@@ -20,12 +20,17 @@ class Validator implements Closeable {
 
     public String getString(String message) {
         System.out.print(message);
-        return this.io.read();
+        return this.io.readNextLine();
+    }
+
+    public boolean starConversion(String message, String answer) {
+        System.out.print(message);
+        return answer.equals(io.readNextLine());
     }
 
     public boolean exit(String message, String answer) {
         System.out.print(message);
-        return answer.equals(io.read());
+        return answer.equals(io.readNextLine());
     }
 
     @Override

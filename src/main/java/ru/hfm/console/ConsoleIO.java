@@ -21,7 +21,7 @@ class ConsoleIO implements IO {
     }
 
     @Override
-    public String read() {
+    public String readNextLine() {
         return this.scanner.nextLine();
     }
 

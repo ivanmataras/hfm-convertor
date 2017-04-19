@@ -9,6 +9,6 @@ package ru.hfm.console;
 
 interface Input {
 
-    String read();
+    String readNextLine();
 
 }
