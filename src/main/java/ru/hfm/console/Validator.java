@@ -23,7 +23,7 @@ class Validator implements Closeable {
         return this.io.readNextLine();
     }
 
-    public boolean starConversion(String message, String answer) {
+    public boolean startConversion(String message, String answer) {
         System.out.print(message);
         return answer.equals(io.readNextLine());
     }
