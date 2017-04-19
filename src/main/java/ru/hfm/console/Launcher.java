@@ -73,6 +73,8 @@ public class Launcher {
                     String columnNumberAmount = validator.getString("Enter column number for Amount");
                     String rowNumberAmount = validator.getString("Enter row number for Amount");
 
+
+
                 } while (validator.exit("Do you want to continue? (y)", "y"));
 
             } catch (Exception e) {
