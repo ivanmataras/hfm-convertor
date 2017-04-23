@@ -102,8 +102,8 @@ public class Launcher {
                 String rowNumberAmount = validator.getString("Enter row number for Amount");
                 this.parameters.setRowNumberAmount(rowNumberAmount);
 
-                if (validator.startConversion("Do you want to start conversion? (y)", "y")) {
-                    convertor.convert();
+                if (validator.startConvertation("Do you want to start conversion? (y)", "y")) {
+                    convertor.convert(parameters);
                 }
 
 

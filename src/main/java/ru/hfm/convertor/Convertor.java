@@ -7,23 +7,46 @@ package ru.hfm.convertor;
  * @since 06.04.2017
  */
 
+import javax.swing.text.StyledEditorKit;
+
 public class Convertor {
 
-    //private Parameters parameters;
-    //private Reader reader;
+    private Parameters parameters;
+    private Reader reader;
     //private Normalizer normalizer;
     //private Validator validator;
     //private Writer writer;
 
     public Convertor() {
-
+        this.reader = new Reader();
     }
 
-    public void convert() {
-        System.out.println("Hello i am converter!");
+    public void convert(Parameters parameters) {
+        System.out.println("Hello i am convertor!");
+        this.setParameters(parameters);
+
+        this.read();
     }
 
     private void read() {
+
+        this.reader.setParameters(this.parameters);
+        Boolean fileExists = false;
+        Boolean canRead = false;
+
+        fileExists = this.reader.verifyFileExistence();
+
+        if (fileExists) {
+
+            if (canRead) {
+
+            } else if (!canRead) {
+
+            }
+
+        } else if (!fileExists) {
+
+        }
 
     }
 
@@ -37,6 +60,10 @@ public class Convertor {
 
     private void write() {
 
+    }
+
+    private void setParameters(Parameters parameters) {
+        this.parameters = parameters;
     }
 
 }
