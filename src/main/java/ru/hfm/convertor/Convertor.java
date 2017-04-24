@@ -7,8 +7,6 @@ package ru.hfm.convertor;
  * @since 06.04.2017
  */
 
-import javax.swing.text.StyledEditorKit;
-
 public class Convertor {
 
     private Parameters parameters;

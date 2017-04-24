@@ -1,6 +1,5 @@
 package ru.hfm.console;
 
-import javax.swing.text.StyledEditorKit;
 import java.io.Closeable;
 import java.io.IOException;
 
@@ -15,16 +14,16 @@ class Validator implements Closeable {
 
     private IO io;
 
-    public Validator(IO io) {
+    Validator(IO io) {
         this.io = io;
     }
 
-    public String getString(String message) {
+    String getString(String message) {
         System.out.print(message);
         return this.io.readNextLine();
     }
 
-    public boolean startConvertation(String message, String answer) {
+    boolean startConvertation(String message, String answer) {
         System.out.print(message);
 
         Boolean result = false;
@@ -41,7 +40,7 @@ class Validator implements Closeable {
         return result;
     }
 
-    public boolean exit(String message, String answer) {
+    boolean exit(String message, String answer) {
         System.out.print(message);
         Boolean result = false;
         String answerResult = "";

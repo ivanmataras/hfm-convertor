@@ -3,6 +3,7 @@ package ru.hfm.console;
 import ru.hfm.convertor.Convertor;
 import ru.hfm.convertor.Parameters;
 
+import java.util.Scanner;
 
 /*
  * Main class
@@ -11,8 +12,6 @@ import ru.hfm.convertor.Parameters;
  * @since 06.04.2017
  */
 
-
-import java.util.Scanner;
 
 public class Launcher {
 
@@ -24,13 +23,13 @@ public class Launcher {
         new Launcher(new Convertor(), new ConsoleIO(new Scanner(System.in), System.out), new Parameters()).start();
     }
 
-    Launcher(Convertor convertor, IO io, Parameters parameters) {
+    private Launcher(Convertor convertor, IO io, Parameters parameters) {
         this.convertor = convertor;
         this.io = io;
         this.parameters = parameters;
     }
 
-    public void start() {
+    private void start() {
 
         System.out.println("HFM convertor version 1.0.0.0 has started");
 
