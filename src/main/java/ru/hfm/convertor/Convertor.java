@@ -7,6 +7,8 @@ package ru.hfm.convertor;
  * @since 06.04.2017
  */
 
+import java.util.List;
+
 public class Convertor {
 
     private Parameters parameters;
@@ -14,37 +16,23 @@ public class Convertor {
     //private Normalizer normalizer;
     //private Validator validator;
     //private Writer writer;
+    private List<DataRecord> dataArray;
 
     public Convertor() {
-        this.reader = new Reader();
+
     }
 
     public void convert(Parameters parameters) {
         System.out.println("Hello i am convertor!");
         this.setParameters(parameters);
-
         this.read();
     }
 
     private void read() {
 
+        this.reader = new Reader();
         this.reader.setParameters(this.parameters);
-        Boolean fileExists = false;
-        Boolean canRead = false;
-
-        fileExists = this.reader.verifyFileExistence();
-
-        if (fileExists) {
-
-            if (canRead) {
-
-            } else if (!canRead) {
-
-            }
-
-        } else if (!fileExists) {
-
-        }
+        this.dataArray = this.reader.readFile();
 
     }
 
