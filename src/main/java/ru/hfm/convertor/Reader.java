@@ -44,6 +44,8 @@ class Reader {
 
     List<DataRecord> readFile() {
 
+        this.setFilePath();
+
         this.dataArray = new ArrayList<DataRecord>();
 
         try (FileInputStream fileInputStream = new FileInputStream(this.file)) {
