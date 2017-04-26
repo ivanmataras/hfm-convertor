@@ -1,5 +1,6 @@
 package ru.hfm.convertor;
 
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -8,9 +9,10 @@ import org.apache.poi.ss.usermodel.Sheet;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
+
 
 /*
  * Class for reading input data
@@ -25,7 +27,7 @@ class Reader {
     private File file;
     private FileInputStream fileInputStream;
     private XSSFWorkbook xssfWorkbook;
-    private DataRecord dataRecord;
+    //private DataRecord dataRecord;
     private List<DataRecord> dataArray;
 
     Reader() {
@@ -40,42 +42,50 @@ class Reader {
         this.file = new File(this.parameters.getInputFile());
     }
 
-    private boolean verifyFileExistence() {
-        return this.file.exists();
-    }
-
-    private boolean canRead() {
-        return this.file.canRead();
-    }
-
     List<DataRecord> readFile() {
 
         this.dataArray = new ArrayList<DataRecord>();
 
-        if (this.verifyFileExistence()) {
-
-            if (this.canRead()) {
-
-            } else if (!this.canRead()) {
-
-            }
-
-        } else if (!this.verifyFileExistence()) {
-
-        }
-
-        return this.dataArray;
-    }
-
-    private FileInputStream getFileInputStream() {
-
         try (FileInputStream fileInputStream = new FileInputStream(this.file)) {
+
+            try (XSSFWorkbook workBook = new XSSFWorkbook(fileInputStream)) {
+
+                Sheet sheet = workBook.getSheet(this.parameters.getSheetName());
+
+                Iterator<Row> rowIterator = sheet.iterator();
+
+                while (rowIterator.hasNext()) {
+
+                    Row row = rowIterator.next();
+                    Iterator<Cell> cellsIterator = row.iterator();
+
+                    while (cellsIterator.hasNext()) {
+
+                        Cell cell = cellsIterator.next();
+                        CellType cellType = cell.getCellTypeEnum();
+
+                        if (cellType.equals(CellType.BLANK)) {
+                            continue;
+                        } else if (cellType.equals(CellType.STRING)) {
+
+
+                        } else if (cellType.equals(CellType.NUMERIC)) {
+
+                        } else {
+                            continue;
+                        }
+                    }
+                }
+
+            } catch (IOException exception) {
+                exception.printStackTrace();
+            }
 
         } catch (IOException exception) {
             exception.printStackTrace();
         }
 
-        return fileInputStream;
+        return this.dataArray;
     }
 
 }

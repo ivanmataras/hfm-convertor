@@ -23,13 +23,11 @@ public class Convertor {
     }
 
     public void convert(Parameters parameters) {
-        System.out.println("Hello i am convertor!");
         this.setParameters(parameters);
         this.read();
     }
 
     private void read() {
-
         this.reader = new Reader();
         this.reader.setParameters(this.parameters);
         this.dataArray = this.reader.readFile();
