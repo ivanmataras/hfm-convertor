@@ -29,6 +29,7 @@ class Reader {
     private XSSFWorkbook xssfWorkbook;
     //private DataRecord dataRecord;
     private List<DataRecord> dataArray;
+    private
 
     Reader() {
 
@@ -73,8 +74,9 @@ class Reader {
 
                         } else if (cellType.equals(CellType.NUMERIC)) {
 
-                        } else {
-                            continue;
+
+                        } else if (cellType.equals(CellType.FORMULA)) {
+
                         }
                     }
                 }
