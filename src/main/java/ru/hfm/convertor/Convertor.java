@@ -30,7 +30,7 @@ public class Convertor {
     private void read() {
         this.reader = new Reader(this.parameters.getInputFile());
         this.reader.setParameters(this.parameters);
-        this.dataArray = this.reader.testReadFile();
+        this.dataArray = this.reader.readFile();
     }
 
     private void normalize() {
