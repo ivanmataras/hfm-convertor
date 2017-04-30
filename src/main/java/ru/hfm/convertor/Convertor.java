@@ -28,9 +28,9 @@ public class Convertor {
     }
 
     private void read() {
-        this.reader = new Reader();
+        this.reader = new Reader(this.parameters.getInputFile());
         this.reader.setParameters(this.parameters);
-        this.dataArray = this.reader.readFile();
+        this.dataArray = this.reader.testReadFile();
     }
 
     private void normalize() {
@@ -43,6 +43,10 @@ public class Convertor {
 
     private void write() {
 
+    }
+
+    private Parameters getParameters() {
+        return this.parameters;
     }
 
     private void setParameters(Parameters parameters) {
