@@ -34,7 +34,7 @@ class Validator implements Closeable {
                 result = answer.equals(answerResult);
                 break;
             } else if (answerResult.isEmpty()) {
-                System.out.print("Press \"y\" for start convertation or \"n\" for change parameters.");
+                io.print("Press \"y\" for start convertation or \"n\" for change parameters.");
             }
         } while (!answer.isEmpty());
         return result;
@@ -50,7 +50,7 @@ class Validator implements Closeable {
                 result = answer.equals(answerResult);
                 break;
             } else if (answerResult.isEmpty()) {
-                System.out.print("Press \"y\" for continue or \"n\" for exit.");
+                io.print("Press \"y\" for continue or \"n\" for exit.");
             }
         } while (!answer.isEmpty());
         return result;

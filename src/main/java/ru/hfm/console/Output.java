@@ -9,6 +9,7 @@ package ru.hfm.console;
 
 interface Output {
 
-    void println(Object value);
+    void println(String value);
 
+    void print(String value);
 }
