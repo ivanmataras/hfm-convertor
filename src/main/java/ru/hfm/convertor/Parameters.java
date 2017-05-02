@@ -49,6 +49,22 @@ public class Parameters {
 
     }
 
+    public String getFirstRowNumber() {
+        return this.firstRowNumber;
+    }
+
+    public void setFirstRowNumber(String firstRowNumber) {
+        this.firstRowNumber = firstRowNumber;
+    }
+
+    public String getLastRowNumber() {
+        return this.lastRowNumber;
+    }
+
+    public void setLastRowNumber(String lastRowNumber) {
+        this.lastRowNumber = lastRowNumber;
+    }
+
     public String getInputFile() {
         return inputFile;
     }

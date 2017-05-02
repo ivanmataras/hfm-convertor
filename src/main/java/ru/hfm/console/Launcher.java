@@ -53,7 +53,11 @@ public class Launcher {
                 String month = validator.getString("Enter month");
                 this.parameters.setMonth(month);
 
+                String firstRowNumber = validator.getString("Enter first row number to read");
+                this.parameters.setFirstRowNumber(firstRowNumber);
 
+                String lastRowNumber = validator.getString("Enter last row number to read");
+                this.parameters.setLastRowNumber(lastRowNumber);
 
 //                io.println("Enter cell adress for Source FM Entity");
                 String columnNumberSourceFMEntity = validator.getString("Enter column number for Source FM Entity");
