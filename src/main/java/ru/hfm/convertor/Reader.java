@@ -31,8 +31,8 @@ class Reader {
     private List<DataRecord> dataArray;
 
 
-    Reader(String inputFile) {
-        this.file = new File(inputFile);
+    Reader() {
+
     }
 
     Parameters getParameters() {
@@ -41,6 +41,10 @@ class Reader {
 
     void setParameters(Parameters parameters) {
         this.parameters = parameters;
+    }
+
+    void setFile() {
+        this.file = new File(parameters.getInputFile());
     }
 
     List<DataRecord> readFile() {

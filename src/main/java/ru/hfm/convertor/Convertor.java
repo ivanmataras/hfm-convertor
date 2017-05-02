@@ -28,8 +28,9 @@ public class Convertor {
     }
 
     private void read() {
-        this.reader = new Reader(this.parameters.getInputFile());
+        this.reader = new Reader();
         this.reader.setParameters(this.parameters);
+        this.reader.setFile();
         this.dataArray = this.reader.readFile();
     }
 

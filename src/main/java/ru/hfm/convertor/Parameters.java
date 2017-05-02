@@ -18,6 +18,9 @@ public class Parameters {
     private String year;
     private String month;
 
+    private String firstRowNumber;
+    private String lastRowNumber;
+
     private String columnNumberSourceFMEntity;
     private String rowNumberSourceFMEntity;
 

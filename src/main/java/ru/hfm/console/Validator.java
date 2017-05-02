@@ -19,7 +19,7 @@ class Validator implements Closeable {
     }
 
     String getString(String message) {
-        System.out.print(message);
+        this.io.print(message);
         return this.io.readNextLine();
     }
 
