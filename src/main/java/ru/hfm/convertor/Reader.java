@@ -52,6 +52,9 @@ class Reader {
         this.dataArray = new ArrayList<DataRecord>();
 
         char splitSymbol = '\u0020';
+        int firstRowNumber = Integer.parseInt(parameters.getFirstRowNumber());
+        int lastRowNumber = Integer.parseInt(parameters.getLastRowNumber());
+
         StringBuilder stringBuilder = new StringBuilder(128);
 
         try (FileInputStream fileInputStream = new FileInputStream(this.file)) {
@@ -67,29 +70,34 @@ class Reader {
                     Row row = rowIterator.next();
                     Iterator<Cell> cellsIterator = row.iterator();
 
-                    while (cellsIterator.hasNext()) {
+                    int currentRowNumber = row.getRowNum();
 
-                        Cell cell = cellsIterator.next();
-                        CellType cellType = cell.getCellTypeEnum();
+                    if (currentRowNumber >= firstRowNumber & currentRowNumber <= lastRowNumber) {
 
-                        if (cellType.equals(CellType.BLANK)) {
-                            continue;
-                        } else if (cellType.equals(CellType.STRING)) {
+                        while (cellsIterator.hasNext()) {
 
-                            stringBuilder.append(cell.getStringCellValue()).append(splitSymbol);
-                        } else if (cellType.equals(CellType.NUMERIC)) {
+                            Cell cell = cellsIterator.next();
+                            CellType cellType = cell.getCellTypeEnum();
 
-                            stringBuilder.append(cell.getNumericCellValue()).append(splitSymbol);
-                        } else if (cellType.equals(CellType.FORMULA)) {
+                            if (cellType.equals(CellType.BLANK)) {
+                                continue;
+                            } else if (cellType.equals(CellType.STRING)) {
 
-                            stringBuilder.append(cell.getNumericCellValue()).append(splitSymbol);
+                                stringBuilder.append(cell.getStringCellValue()).append(splitSymbol);
+                            } else if (cellType.equals(CellType.NUMERIC)) {
+
+                                stringBuilder.append(cell.getNumericCellValue()).append(splitSymbol);
+                            } else if (cellType.equals(CellType.FORMULA)) {
+
+                                stringBuilder.append(cell.getNumericCellValue()).append(splitSymbol);
+                            }
                         }
+
+                        String stringRecord = new String(stringBuilder).trim();
+                        System.out.println(stringRecord);
+                        stringBuilder.delete(0, stringBuilder.length());
+
                     }
-
-                    String stringRecord = new String(stringBuilder).trim();
-                    System.out.println(stringRecord);
-                    stringBuilder.delete(0, stringBuilder.length());
-
                 }
 
             } catch (IOException exception) {
