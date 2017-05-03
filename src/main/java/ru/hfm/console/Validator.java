@@ -23,6 +23,11 @@ class Validator implements Closeable {
         return this.io.readNextLine();
     }
 
+    int getInt(String message){
+        this.io.print(message);
+        return this.io.readInt();
+    }
+
     boolean startConvertation(String message, String answer) {
         System.out.print(message);
 

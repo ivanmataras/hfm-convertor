@@ -11,4 +11,6 @@ interface Input {
 
     String readNextLine();
 
+    int readInt();
+
 }

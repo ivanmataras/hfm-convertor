@@ -12,4 +12,5 @@ interface Output {
     void println(String value);
 
     void print(String value);
+
 }
