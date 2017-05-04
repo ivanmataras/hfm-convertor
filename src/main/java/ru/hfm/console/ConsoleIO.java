@@ -25,6 +25,10 @@ class ConsoleIO implements IO {
         return this.scanner.nextLine();
     }
 
+    public int readInt() {
+        return this.scanner.nextInt();
+    }
+
     @Override
     public void println(String value) {
         this.out.println(value);
