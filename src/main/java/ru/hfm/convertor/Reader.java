@@ -150,23 +150,9 @@ class Reader {
 
     private boolean checkColumnIdentity(int currentCellNumber) {
 
-        //boolean searchResult;
 
-        int length = columnsNumbersIdentityArray.length;
+        return false;
 
-        for (int i = 0; i >= length; i++) {
-
-            if (i == currentCellNumber) {
-                //searchResult = true;
-                return true;
-            } else if (i != currentCellNumber) {
-                //searchResult = false;
-                return false;
-            }
-
-        }
-
-        //return searchResult;
     }
 
 }
