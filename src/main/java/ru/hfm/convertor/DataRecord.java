@@ -7,6 +7,8 @@ package ru.hfm.convertor;
  * @since 06.04.2017
  */
 
+import java.math.BigDecimal;
+
 class DataRecord {
 
     private String Entity;
@@ -16,7 +18,11 @@ class DataRecord {
     private String SourceCustom2;
     private String SourceCustom3;
     private String SourceCustom4;
-    private String Amount;
+    private BigDecimal Amount;
+
+    DataRecord() {
+
+    }
 
     String getEntity() {
         return Entity;
@@ -74,11 +80,11 @@ class DataRecord {
         SourceCustom4 = sourceCustom4;
     }
 
-    String getAmount() {
+    BigDecimal getAmount() {
         return Amount;
     }
 
-    void setAmount(String amount) {
+    void setAmount(BigDecimal amount) {
         Amount = amount;
     }
 }

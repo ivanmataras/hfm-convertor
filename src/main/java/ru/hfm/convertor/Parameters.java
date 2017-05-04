@@ -15,54 +15,38 @@ public class Parameters {
     private String sheetName;
     private String sectionName;
     private String scenario;
-    private String year;
-    private String month;
+    private int year;
+    private int month;
 
-    private String firstRowNumber;
-    private String lastRowNumber;
+    private int firstRowNumber;
+    private int lastRowNumber;
 
-    private String columnNumberSourceFMEntity;
-    private String rowNumberSourceFMEntity;
+    private int columnNumberSourceFMEntity;
+    private int rowNumberSourceFMEntity;
 
-    private String columnNumberSourceFMAccount;
-    private String rowNumberSourceFMAccount;
+    private int columnNumberSourceFMAccount;
+    private int rowNumberSourceFMAccount;
 
-    private String columnNumberSourceICP;
-    private String rowNumberSourceICP;
+    private int columnNumberSourceICP;
+    private int rowNumberSourceICP;
 
-    private String columnNumberSourceCustom1;
-    private String rowNumberSourceCustom1;
+    private int columnNumberSourceCustom1;
+    private int rowNumberSourceCustom1;
 
-    private String columnNumberSourceCustom2;
-    private String rowNumberSourceCustom2;
+    private int columnNumberSourceCustom2;
+    private int rowNumberSourceCustom2;
 
-    private String columnNumberSourceCustom3;
-    private String rowNumberSourceCustom3;
+    private int columnNumberSourceCustom3;
+    private int rowNumberSourceCustom3;
 
-    private String columnNumberSourceCustom4;
-    private String rowNumberSourceCustom4;
+    private int columnNumberSourceCustom4;
+    private int rowNumberSourceCustom4;
 
-    private String columnNumberAmount;
-    private String rowNumberAmount;
+    private int columnNumberAmount;
+    private int rowNumberAmount;
 
     public Parameters() {
 
-    }
-
-    public String getFirstRowNumber() {
-        return this.firstRowNumber;
-    }
-
-    public void setFirstRowNumber(String firstRowNumber) {
-        this.firstRowNumber = firstRowNumber;
-    }
-
-    public String getLastRowNumber() {
-        return this.lastRowNumber;
-    }
-
-    public void setLastRowNumber(String lastRowNumber) {
-        this.lastRowNumber = lastRowNumber;
     }
 
     public String getInputFile() {
@@ -105,147 +89,163 @@ public class Parameters {
         this.scenario = scenario;
     }
 
-    public String getYear() {
+    public int getYear() {
         return year;
     }
 
-    public void setYear(String year) {
+    public void setYear(int year) {
         this.year = year;
     }
 
-    public String getMonth() {
+    public int getMonth() {
         return month;
     }
 
-    public void setMonth(String month) {
+    public void setMonth(int month) {
         this.month = month;
     }
 
-    public String getColumnNumberSourceFMEntity() {
+    public int getFirstRowNumber() {
+        return firstRowNumber;
+    }
+
+    public void setFirstRowNumber(int firstRowNumber) {
+        this.firstRowNumber = firstRowNumber;
+    }
+
+    public int getLastRowNumber() {
+        return lastRowNumber;
+    }
+
+    public void setLastRowNumber(int lastRowNumber) {
+        this.lastRowNumber = lastRowNumber;
+    }
+
+    public int getColumnNumberSourceFMEntity() {
         return columnNumberSourceFMEntity;
     }
 
-    public void setColumnNumberSourceFMEntity(String columnNumberSourceFMEntity) {
+    public void setColumnNumberSourceFMEntity(int columnNumberSourceFMEntity) {
         this.columnNumberSourceFMEntity = columnNumberSourceFMEntity;
     }
 
-    public String getRowNumberSourceFMEntity() {
+    public int getRowNumberSourceFMEntity() {
         return rowNumberSourceFMEntity;
     }
 
-    public void setRowNumberSourceFMEntity(String rowNumberSourceFMEntity) {
+    public void setRowNumberSourceFMEntity(int rowNumberSourceFMEntity) {
         this.rowNumberSourceFMEntity = rowNumberSourceFMEntity;
     }
 
-    public String getColumnNumberSourceFMAccount() {
+    public int getColumnNumberSourceFMAccount() {
         return columnNumberSourceFMAccount;
     }
 
-    public void setColumnNumberSourceFMAccount(String columnNumberSourceFMAccount) {
+    public void setColumnNumberSourceFMAccount(int columnNumberSourceFMAccount) {
         this.columnNumberSourceFMAccount = columnNumberSourceFMAccount;
     }
 
-    public String getRowNumberSourceFMAccount() {
+    public int getRowNumberSourceFMAccount() {
         return rowNumberSourceFMAccount;
     }
 
-    public void setRowNumberSourceFMAccount(String rowNumberSourceFMAccount) {
+    public void setRowNumberSourceFMAccount(int rowNumberSourceFMAccount) {
         this.rowNumberSourceFMAccount = rowNumberSourceFMAccount;
     }
 
-    public String getColumnNumberSourceICP() {
+    public int getColumnNumberSourceICP() {
         return columnNumberSourceICP;
     }
 
-    public void setColumnNumberSourceICP(String columnNumberSourceICP) {
+    public void setColumnNumberSourceICP(int columnNumberSourceICP) {
         this.columnNumberSourceICP = columnNumberSourceICP;
     }
 
-    public String getRowNumberSourceICP() {
+    public int getRowNumberSourceICP() {
         return rowNumberSourceICP;
     }
 
-    public void setRowNumberSourceICP(String rowNumberSourceICP) {
+    public void setRowNumberSourceICP(int rowNumberSourceICP) {
         this.rowNumberSourceICP = rowNumberSourceICP;
     }
 
-    public String getColumnNumberSourceCustom1() {
+    public int getColumnNumberSourceCustom1() {
         return columnNumberSourceCustom1;
     }
 
-    public void setColumnNumberSourceCustom1(String columnNumberSourceCustom1) {
+    public void setColumnNumberSourceCustom1(int columnNumberSourceCustom1) {
         this.columnNumberSourceCustom1 = columnNumberSourceCustom1;
     }
 
-    public String getRowNumberSourceCustom1() {
+    public int getRowNumberSourceCustom1() {
         return rowNumberSourceCustom1;
     }
 
-    public void setRowNumberSourceCustom1(String rowNumberSourceCustom1) {
+    public void setRowNumberSourceCustom1(int rowNumberSourceCustom1) {
         this.rowNumberSourceCustom1 = rowNumberSourceCustom1;
     }
 
-    public String getColumnNumberSourceCustom2() {
+    public int getColumnNumberSourceCustom2() {
         return columnNumberSourceCustom2;
     }
 
-    public void setColumnNumberSourceCustom2(String columnNumberSourceCustom2) {
+    public void setColumnNumberSourceCustom2(int columnNumberSourceCustom2) {
         this.columnNumberSourceCustom2 = columnNumberSourceCustom2;
     }
 
-    public String getRowNumberSourceCustom2() {
+    public int getRowNumberSourceCustom2() {
         return rowNumberSourceCustom2;
     }
 
-    public void setRowNumberSourceCustom2(String rowNumberSourceCustom2) {
+    public void setRowNumberSourceCustom2(int rowNumberSourceCustom2) {
         this.rowNumberSourceCustom2 = rowNumberSourceCustom2;
     }
 
-    public String getColumnNumberSourceCustom3() {
+    public int getColumnNumberSourceCustom3() {
         return columnNumberSourceCustom3;
     }
 
-    public void setColumnNumberSourceCustom3(String columnNumberSourceCustom3) {
+    public void setColumnNumberSourceCustom3(int columnNumberSourceCustom3) {
         this.columnNumberSourceCustom3 = columnNumberSourceCustom3;
     }
 
-    public String getRowNumberSourceCustom3() {
+    public int getRowNumberSourceCustom3() {
         return rowNumberSourceCustom3;
     }
 
-    public void setRowNumberSourceCustom3(String rowNumberSourceCustom3) {
+    public void setRowNumberSourceCustom3(int rowNumberSourceCustom3) {
         this.rowNumberSourceCustom3 = rowNumberSourceCustom3;
     }
 
-    public String getColumnNumberSourceCustom4() {
+    public int getColumnNumberSourceCustom4() {
         return columnNumberSourceCustom4;
     }
 
-    public void setColumnNumberSourceCustom4(String columnNumberSourceCustom4) {
+    public void setColumnNumberSourceCustom4(int columnNumberSourceCustom4) {
         this.columnNumberSourceCustom4 = columnNumberSourceCustom4;
     }
 
-    public String getRowNumberSourceCustom4() {
+    public int getRowNumberSourceCustom4() {
         return rowNumberSourceCustom4;
     }
 
-    public void setRowNumberSourceCustom4(String rowNumberSourceCustom4) {
+    public void setRowNumberSourceCustom4(int rowNumberSourceCustom4) {
         this.rowNumberSourceCustom4 = rowNumberSourceCustom4;
     }
 
-    public String getColumnNumberAmount() {
+    public int getColumnNumberAmount() {
         return columnNumberAmount;
     }
 
-    public void setColumnNumberAmount(String columnNumberAmount) {
+    public void setColumnNumberAmount(int columnNumberAmount) {
         this.columnNumberAmount = columnNumberAmount;
     }
 
-    public String getRowNumberAmount() {
+    public int getRowNumberAmount() {
         return rowNumberAmount;
     }
 
-    public void setRowNumberAmount(String rowNumberAmount) {
+    public void setRowNumberAmount(int rowNumberAmount) {
         this.rowNumberAmount = rowNumberAmount;
     }
 }

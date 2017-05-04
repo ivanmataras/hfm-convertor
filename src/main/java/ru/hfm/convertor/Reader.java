@@ -9,6 +9,7 @@ import org.apache.poi.ss.usermodel.Sheet;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -29,7 +30,7 @@ class Reader {
     private XSSFWorkbook xssfWorkbook;
     //private DataRecord dataRecord;
     private List<DataRecord> dataArray;
-
+    private int[] columnsNumbersIdentityArray;
 
     Reader() {
 
@@ -52,8 +53,20 @@ class Reader {
         this.dataArray = new ArrayList<DataRecord>();
 
         char splitSymbol = '\u0020';
-        int firstRowNumber = Integer.parseInt(parameters.getFirstRowNumber());
-        int lastRowNumber = Integer.parseInt(parameters.getLastRowNumber());
+//        int firstRowNumber = Integer.parseInt(parameters.getFirstRowNumber());
+//        int lastRowNumber = Integer.parseInt(parameters.getLastRowNumber());
+
+        int firstRowNumber = parameters.getFirstRowNumber();
+        int lastRowNumber = parameters.getLastRowNumber();
+
+//        int columnNumberSourceFMEntity = parameters.getColumnNumberSourceFMEntity();
+//        int columnNumberSourceFMAccount = parameters.getColumnNumberSourceFMAccount();
+//        int columnNumberSourceICP = parameters.getColumnNumberSourceICP();
+//        int columnNumberSourceCustom1 = parameters.getColumnNumberSourceCustom1();
+//        int columnNumberSourceCustom2 = parameters.getColumnNumberSourceCustom2();
+//        int columnNumberSourceCustom3 = parameters.getColumnNumberSourceCustom3();
+//        int columnNumberSourceCustom4 = parameters.getColumnNumberSourceCustom4();
+//        int columnNumberAmount = parameters.getColumnNumberAmount();
 
         StringBuilder stringBuilder = new StringBuilder(128);
 
@@ -79,18 +92,27 @@ class Reader {
                             Cell cell = cellsIterator.next();
                             CellType cellType = cell.getCellTypeEnum();
 
-                            if (cellType.equals(CellType.BLANK)) {
+                            int currentCellNumber = cell.getColumnIndex();
+
+                            if () {
+
+                                if (cellType.equals(CellType.BLANK)) {
+                                    continue;
+                                } else if (cellType.equals(CellType.STRING)) {
+
+                                    stringBuilder.append(cell.getStringCellValue()).append(splitSymbol);
+                                } else if (cellType.equals(CellType.NUMERIC)) {
+
+                                    stringBuilder.append(cell.getNumericCellValue()).append(splitSymbol);
+                                } else if (cellType.equals(CellType.FORMULA)) {
+
+                                    stringBuilder.append(cell.getNumericCellValue()).append(splitSymbol);
+                                }
+
+                            } else if () {
                                 continue;
-                            } else if (cellType.equals(CellType.STRING)) {
-
-                                stringBuilder.append(cell.getStringCellValue()).append(splitSymbol);
-                            } else if (cellType.equals(CellType.NUMERIC)) {
-
-                                stringBuilder.append(cell.getNumericCellValue()).append(splitSymbol);
-                            } else if (cellType.equals(CellType.FORMULA)) {
-
-                                stringBuilder.append(cell.getNumericCellValue()).append(splitSymbol);
                             }
+
                         }
 
                         String stringRecord = new String(stringBuilder).trim();
@@ -109,6 +131,42 @@ class Reader {
         }
 
         return this.dataArray;
+    }
+
+    private void setColumnIdentityArray() {
+
+        this.columnsNumbersIdentityArray = new int[8];
+
+        this.columnsNumbersIdentityArray[0] = parameters.getColumnNumberSourceFMEntity();
+        this.columnsNumbersIdentityArray[1] = parameters.getColumnNumberSourceFMAccount();
+        this.columnsNumbersIdentityArray[2] = parameters.getColumnNumberSourceICP();
+        this.columnsNumbersIdentityArray[3] = parameters.getColumnNumberSourceCustom1();
+        this.columnsNumbersIdentityArray[4] = parameters.getColumnNumberSourceCustom2();
+        this.columnsNumbersIdentityArray[5] = parameters.getColumnNumberSourceCustom3();
+        this.columnsNumbersIdentityArray[6] = parameters.getColumnNumberSourceCustom4();
+        this.columnsNumbersIdentityArray[7] = parameters.getColumnNumberAmount();
+
+    }
+
+    private boolean checkColumnIdentity(int currentCellNumber) {
+
+        //boolean searchResult;
+
+        int length = columnsNumbersIdentityArray.length;
+
+        for (int i = 0; i >= length; i++) {
+
+            if (i == currentCellNumber) {
+                //searchResult = true;
+                return true;
+            } else if (i != currentCellNumber) {
+                //searchResult = false;
+                return false;
+            }
+
+        }
+
+        //return searchResult;
     }
 
 }

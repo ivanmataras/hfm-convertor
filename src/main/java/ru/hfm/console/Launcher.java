@@ -48,61 +48,61 @@ public class Launcher {
                 this.parameters.setSectionName(sectionName);
                 String scenario = validator.getString("Enter scenario");
                 this.parameters.setScenario(scenario);
-                String year = validator.getString("Enter year");
+                int year = validator.getInt("Enter year");
                 this.parameters.setYear(year);
-                String month = validator.getString("Enter month");
+                int month = validator.getInt("Enter month");
                 this.parameters.setMonth(month);
 
-                String firstRowNumber = validator.getString("Enter first row number to read");
+                int firstRowNumber = validator.getInt("Enter first row number to read");
                 this.parameters.setFirstRowNumber(firstRowNumber);
 
-                String lastRowNumber = validator.getString("Enter last row number to read");
+                int lastRowNumber = validator.getInt("Enter last row number to read");
                 this.parameters.setLastRowNumber(lastRowNumber);
 
 //                io.println("Enter cell adress for Source FM Entity");
-                String columnNumberSourceFMEntity = validator.getString("Enter column number for Source FM Entity");
+                int columnNumberSourceFMEntity = validator.getInt("Enter column number for Source FM Entity");
                 this.parameters.setColumnNumberSourceFMEntity(columnNumberSourceFMEntity);
 //                String rowNumberSourceFMEntity = validator.getString("Enter row number for Source FM Entity");
 //                this.parameters.setRowNumberSourceFMEntity(rowNumberSourceFMEntity);
 
 //                io.println("Enter cell adress for Source FM Account");
-                String columnNumberSourceFMAccount = validator.getString("Enter column number for Source FM Account");
+                int columnNumberSourceFMAccount = validator.getInt("Enter column number for Source FM Account");
                 this.parameters.setColumnNumberSourceFMAccount(columnNumberSourceFMAccount);
 //                String rowNumberSourceFMAccount = validator.getString("Enter row number for Source FM Account");
 //                this.parameters.setRowNumberSourceFMAccount(rowNumberSourceFMAccount);
 
 //                io.println("Enter cell adress for Source ICP");
-                String columnNumberSourceICP = validator.getString("Enter column number for Source ICP");
+                int columnNumberSourceICP = validator.getInt("Enter column number for Source ICP");
                 this.parameters.setColumnNumberSourceICP(columnNumberSourceICP);
 //                String rowNumberSourceICP = validator.getString("Enter row number for Source ICP");
 //                this.parameters.setRowNumberSourceICP(rowNumberSourceICP);
 
 //                io.println("Enter cell adress for Source Custom1");
-                String columnNumberSourceCustom1 = validator.getString("Enter column number for Source Custom1");
+                int columnNumberSourceCustom1 = validator.getInt("Enter column number for Source Custom1");
                 this.parameters.setColumnNumberSourceCustom1(columnNumberSourceCustom1);
 //                String rowNumberSourceCustom1 = validator.getString("Enter row number for Source Custom1");
 //                this.parameters.setRowNumberSourceCustom1(rowNumberSourceCustom1);
 
 //                io.println("Enter cell adress for Source Custom2");
-                String columnNumberSourceCustom2 = validator.getString("Enter column number for Source Custom2");
+                int columnNumberSourceCustom2 = validator.getInt("Enter column number for Source Custom2");
                 this.parameters.setColumnNumberSourceCustom2(columnNumberSourceCustom2);
 //                String rowNumberSourceCustom2 = validator.getString("Enter row number for Source Custom2");
 //                this.parameters.setRowNumberSourceCustom2(rowNumberSourceCustom2);
 
 //                io.println("Enter cell adress for Source Custom3");
-                String columnNumberSourceCustom3 = validator.getString("Enter column number for Source Custom3");
+                int columnNumberSourceCustom3 = validator.getInt("Enter column number for Source Custom3");
                 this.parameters.setColumnNumberSourceCustom3(columnNumberSourceCustom3);
 //                String rowNumberSourceCustom3 = validator.getString("Enter row number for Source Custom3");
 //                this.parameters.setRowNumberSourceCustom3(rowNumberSourceCustom3);
 
 //                io.println("Enter cell adress for Source Custom4");
-                String columnNumberSourceCustom4 = validator.getString("Enter column number for Source Custom4");
+                int columnNumberSourceCustom4 = validator.getInt("Enter column number for Source Custom4");
                 this.parameters.setColumnNumberSourceCustom4(columnNumberSourceCustom4);
 //                String rowNumberSourceCustom4 = validator.getString("Enter row number for Source Custom4");
 //                this.parameters.setRowNumberSourceCustom4(rowNumberSourceCustom4);
 
 //                io.println("Enter cell adress for Amount");
-                String columnNumberAmount = validator.getString("Enter column number for Amount");
+                int columnNumberAmount = validator.getInt("Enter column number for Amount");
                 this.parameters.setColumnNumberAmount(columnNumberAmount);
 //                String rowNumberAmount = validator.getString("Enter row number for Amount");
 //                this.parameters.setRowNumberAmount(rowNumberAmount);
