@@ -59,6 +59,8 @@ class Reader {
         int firstRowNumber = parameters.getFirstRowNumber();
         int lastRowNumber = parameters.getLastRowNumber();
 
+        this.setColumnIdentityArray();
+
 //        int columnNumberSourceFMEntity = parameters.getColumnNumberSourceFMEntity();
 //        int columnNumberSourceFMAccount = parameters.getColumnNumberSourceFMAccount();
 //        int columnNumberSourceICP = parameters.getColumnNumberSourceICP();
@@ -94,7 +96,7 @@ class Reader {
 
                             int currentCellNumber = cell.getColumnIndex();
 
-                            if () {
+                            if (checkColumnIdentity(currentCellNumber)) {
 
                                 if (cellType.equals(CellType.BLANK)) {
                                     continue;
@@ -109,7 +111,7 @@ class Reader {
                                     stringBuilder.append(cell.getNumericCellValue()).append(splitSymbol);
                                 }
 
-                            } else if () {
+                            } else if (checkColumnIdentity(currentCellNumber)) {
                                 continue;
                             }
 
@@ -150,9 +152,14 @@ class Reader {
 
     private boolean checkColumnIdentity(int currentCellNumber) {
 
+        boolean result = false;
 
-        return false;
+        int searchResult = Arrays.binarySearch(this.columnsNumbersIdentityArray, currentCellNumber);
 
+        if (searchResult >=0) result = true;
+        else if(searchResult <0) result = false;
+
+        return result;
     }
 
 }
