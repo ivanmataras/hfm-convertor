@@ -9,10 +9,7 @@ import org.apache.poi.ss.usermodel.Sheet;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.*;
 
 
 /*
@@ -31,6 +28,7 @@ class Reader {
     //private DataRecord dataRecord;
     private List<DataRecord> dataArray;
     private int[] columnsNumbersIdentityArray;
+    private Map<Integer, FinancialDataType> financialDataMaping = new HashMap<Integer, FinancialDataType>();
 
     Reader() {
 
@@ -60,6 +58,7 @@ class Reader {
         int lastRowNumber = parameters.getLastRowNumber();
 
         this.setColumnIdentityArray();
+        this.setFinancialDataMaping();
 
 //        int columnNumberSourceFMEntity = parameters.getColumnNumberSourceFMEntity();
 //        int columnNumberSourceFMAccount = parameters.getColumnNumberSourceFMAccount();
@@ -89,6 +88,8 @@ class Reader {
 
                     if (currentRowNumber >= firstRowNumber & currentRowNumber <= lastRowNumber) {
 
+                        DataRecord dataRecord = new DataRecord();
+
                         while (cellsIterator.hasNext()) {
 
                             Cell cell = cellsIterator.next();
@@ -96,7 +97,11 @@ class Reader {
 
                             int currentCellNumber = cell.getColumnIndex();
 
-                            if (checkColumnIdentity(currentCellNumber)) {
+                            //checkColumnIdentity(currentCellNumber)
+
+                            Enum<FinancialDataType> currentFinancialDataType = checkFinancialDataType(currentCellNumber);
+
+                            if (currentFinancialDataType != FinancialDataType.NotFinancialDataType) {
 
                                 if (cellType.equals(CellType.BLANK)) {
                                     continue;
@@ -111,7 +116,7 @@ class Reader {
                                     stringBuilder.append(cell.getNumericCellValue()).append(splitSymbol);
                                 }
 
-                            } else if (checkColumnIdentity(currentCellNumber)) {
+                            } else if (currentFinancialDataType == FinancialDataType.NotFinancialDataType) {
                                 continue;
                             }
 
@@ -160,6 +165,25 @@ class Reader {
         else if(searchResult <0) result = false;
 
         return result;
+    }
+
+    private void setFinancialDataMaping() {
+
+        this.financialDataMaping.put(parameters.getColumnNumberSourceFMEntity(), FinancialDataType.SourceFMEntity);
+        this.financialDataMaping.put(parameters.getColumnNumberSourceFMAccount(), FinancialDataType.SourceFMAccount);
+        this.financialDataMaping.put(parameters.getColumnNumberSourceICP(), FinancialDataType.SourceICP);
+        this.financialDataMaping.put(parameters.getColumnNumberSourceCustom1(), FinancialDataType.SourceCustom1);
+        this.financialDataMaping.put(parameters.getColumnNumberSourceCustom2(), FinancialDataType.SourceCustom2);
+        this.financialDataMaping.put(parameters.getColumnNumberSourceCustom3(), FinancialDataType.SourceCustom3);
+        this.financialDataMaping.put(parameters.getColumnNumberSourceCustom4(), FinancialDataType.SourceCustom4);
+        this.financialDataMaping.put(parameters.getColumnNumberAmount(), FinancialDataType.Amount);
+
+    }
+
+    private FinancialDataType checkFinancialDataType(int currentCellNumber) {
+
+        return this.financialDataMaping.getOrDefault(currentCellNumber, FinancialDataType.NotFinancialDataType);
+
     }
 
 }
