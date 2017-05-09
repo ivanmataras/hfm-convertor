@@ -169,7 +169,6 @@ class Reader {
         if (cellType.equals(CellType.BLANK)) {
             //continue;
         } else if (cellType.equals(CellType.STRING)) {
-
             //stringBuilder.append(cell.getStringCellValue()).append(splitSymbol);
         } else if (cellType.equals(CellType.NUMERIC)) {
 
