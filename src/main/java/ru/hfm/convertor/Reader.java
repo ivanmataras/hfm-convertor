@@ -76,7 +76,6 @@ class Reader {
             try (XSSFWorkbook workBook = new XSSFWorkbook(fileInputStream)) {
 
                 Sheet sheet = workBook.getSheet(this.parameters.getSheetName());
-
                 Iterator<Row> rowIterator = sheet.iterator();
 
                 while (rowIterator.hasNext()) {
@@ -99,9 +98,12 @@ class Reader {
 
                             //checkColumnIdentity(currentCellNumber)
 
-                            Enum<FinancialDataType> currentFinancialDataType = checkFinancialDataType(currentCellNumber);
+                            //Enum<FinancialDataType> currentFinancialDataType = checkFinancialDataType(currentCellNumber);
+                            FinancialDataType currentFinancialDataType = checkFinancialDataType(currentCellNumber);
 
                             if (currentFinancialDataType != FinancialDataType.NotFinancialDataType) {
+
+                                this.setFieldValue(dataRecord, cell, cellType, currentFinancialDataType);
 
                                 if (cellType.equals(CellType.BLANK)) {
                                     continue;
@@ -138,6 +140,44 @@ class Reader {
         }
 
         return this.dataArray;
+    }
+
+    private void setFieldValue(DataRecord dataRecord,  Cell cell, CellType cellType, FinancialDataType currentFinancialDataType) {
+
+       if(currentFinancialDataType == FinancialDataType.SourceFMEntity) {
+
+       } else if(currentFinancialDataType == FinancialDataType.SourceFMAccount) {
+
+       } else if(currentFinancialDataType == FinancialDataType.SourceICP) {
+
+       } else if(currentFinancialDataType == FinancialDataType.SourceCustom1) {
+
+       } else if(currentFinancialDataType == FinancialDataType.SourceCustom2) {
+
+       } else if(currentFinancialDataType == FinancialDataType.SourceCustom3) {
+
+       } else if(currentFinancialDataType == FinancialDataType.SourceCustom4) {
+
+       } else if(currentFinancialDataType == FinancialDataType.Amount) {
+
+       }
+
+    }
+
+    private CellType getFieldValueByType(Cell cell, CellType cellType) {
+
+        if (cellType.equals(CellType.BLANK)) {
+            //continue;
+        } else if (cellType.equals(CellType.STRING)) {
+
+            //stringBuilder.append(cell.getStringCellValue()).append(splitSymbol);
+        } else if (cellType.equals(CellType.NUMERIC)) {
+
+            //stringBuilder.append(cell.getNumericCellValue()).append(splitSymbol);
+        } else if (cellType.equals(CellType.FORMULA)) {
+
+            //stringBuilder.append(cell.getNumericCellValue()).append(splitSymbol);
+        }
     }
 
     private void setColumnIdentityArray() {
