@@ -11,8 +11,8 @@ import java.math.BigDecimal;
 
 class DataRecord {
 
-    private String Entity;
-    private String FMAccount;
+    private String SourceFMEntity;
+    private String SourceFMAccount;
     private String SourceICP;
     private String SourceCustom1;
     private String SourceCustom2;
@@ -24,20 +24,20 @@ class DataRecord {
 
     }
 
-    String getEntity() {
-        return Entity;
+    String getSourceFMEntity() {
+        return SourceFMEntity;
     }
 
-    void setEntity(String entity) {
-        Entity = entity;
+    void setSourceFMEntity(String sourceFMEntity) {
+        SourceFMEntity = sourceFMEntity;
     }
 
-    String getFMAccount() {
-        return FMAccount;
+    String getSourceFMAccount() {
+        return SourceFMAccount;
     }
 
-    void setFMAccount(String FMAccount) {
-        this.FMAccount = FMAccount;
+    void setSourceFMAccount(String sourceFMAccount) {
+        SourceFMAccount = sourceFMAccount;
     }
 
     String getSourceICP() {

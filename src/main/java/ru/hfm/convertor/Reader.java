@@ -9,6 +9,8 @@ import org.apache.poi.ss.usermodel.Sheet;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.*;
 
 
@@ -51,23 +53,11 @@ class Reader {
         this.dataArray = new ArrayList<DataRecord>();
 
         char splitSymbol = '\u0020';
-//        int firstRowNumber = Integer.parseInt(parameters.getFirstRowNumber());
-//        int lastRowNumber = Integer.parseInt(parameters.getLastRowNumber());
 
         int firstRowNumber = parameters.getFirstRowNumber();
         int lastRowNumber = parameters.getLastRowNumber();
 
-        this.setColumnIdentityArray();
         this.setFinancialDataMaping();
-
-//        int columnNumberSourceFMEntity = parameters.getColumnNumberSourceFMEntity();
-//        int columnNumberSourceFMAccount = parameters.getColumnNumberSourceFMAccount();
-//        int columnNumberSourceICP = parameters.getColumnNumberSourceICP();
-//        int columnNumberSourceCustom1 = parameters.getColumnNumberSourceCustom1();
-//        int columnNumberSourceCustom2 = parameters.getColumnNumberSourceCustom2();
-//        int columnNumberSourceCustom3 = parameters.getColumnNumberSourceCustom3();
-//        int columnNumberSourceCustom4 = parameters.getColumnNumberSourceCustom4();
-//        int columnNumberAmount = parameters.getColumnNumberAmount();
 
         StringBuilder stringBuilder = new StringBuilder(128);
 
@@ -96,9 +86,6 @@ class Reader {
 
                             int currentCellNumber = cell.getColumnIndex();
 
-                            //checkColumnIdentity(currentCellNumber)
-
-                            //Enum<FinancialDataType> currentFinancialDataType = checkFinancialDataType(currentCellNumber);
                             FinancialDataType currentFinancialDataType = checkFinancialDataType(currentCellNumber);
 
                             if (currentFinancialDataType != FinancialDataType.NotFinancialDataType) {
@@ -142,68 +129,44 @@ class Reader {
         return this.dataArray;
     }
 
-    private void setFieldValue(DataRecord dataRecord,  Cell cell, CellType cellType, FinancialDataType currentFinancialDataType) {
+    private void setFieldValue(DataRecord dataRecord, Cell cell, CellType cellType, FinancialDataType currentFinancialDataType) {
 
-       if(currentFinancialDataType == FinancialDataType.SourceFMEntity) {
+        if (currentFinancialDataType == FinancialDataType.SourceFMEntity) {
 
-       } else if(currentFinancialDataType == FinancialDataType.SourceFMAccount) {
+            dataRecord.setSourceFMEntity(cell.getStringCellValue());
 
-       } else if(currentFinancialDataType == FinancialDataType.SourceICP) {
+        } else if (currentFinancialDataType == FinancialDataType.SourceFMAccount) {
 
-       } else if(currentFinancialDataType == FinancialDataType.SourceCustom1) {
+            dataRecord.setSourceFMAccount(cell.getStringCellValue());
 
-       } else if(currentFinancialDataType == FinancialDataType.SourceCustom2) {
+        } else if (currentFinancialDataType == FinancialDataType.SourceICP) {
 
-       } else if(currentFinancialDataType == FinancialDataType.SourceCustom3) {
+            dataRecord.setSourceICP(cell.getStringCellValue());
 
-       } else if(currentFinancialDataType == FinancialDataType.SourceCustom4) {
+        } else if (currentFinancialDataType == FinancialDataType.SourceCustom1) {
 
-       } else if(currentFinancialDataType == FinancialDataType.Amount) {
+            dataRecord.setSourceCustom1(cell.getStringCellValue());
 
-       }
+        } else if (currentFinancialDataType == FinancialDataType.SourceCustom2) {
 
-    }
+            dataRecord.setSourceCustom2(cell.getStringCellValue());
 
-    private CellType getFieldValueByType(Cell cell, CellType cellType) {
+        } else if (currentFinancialDataType == FinancialDataType.SourceCustom3) {
 
-        if (cellType.equals(CellType.BLANK)) {
-            //continue;
-        } else if (cellType.equals(CellType.STRING)) {
-            //stringBuilder.append(cell.getStringCellValue()).append(splitSymbol);
-        } else if (cellType.equals(CellType.NUMERIC)) {
+            dataRecord.setSourceCustom3(cell.getStringCellValue());
 
-            //stringBuilder.append(cell.getNumericCellValue()).append(splitSymbol);
-        } else if (cellType.equals(CellType.FORMULA)) {
+        } else if (currentFinancialDataType == FinancialDataType.SourceCustom4) {
 
-            //stringBuilder.append(cell.getNumericCellValue()).append(splitSymbol);
+            dataRecord.setSourceCustom4(cell.getStringCellValue());
+
+        } else if (currentFinancialDataType == FinancialDataType.Amount) {
+
+            Double doubleCellValue = cell.getNumericCellValue();
+            BigDecimal bigDecimalCellValue = new BigDecimal(doubleCellValue.doubleValue()).setScale(0, RoundingMode.HALF_UP);
+            dataRecord.setAmount(bigDecimalCellValue);
+
         }
-    }
 
-    private void setColumnIdentityArray() {
-
-        this.columnsNumbersIdentityArray = new int[8];
-
-        this.columnsNumbersIdentityArray[0] = parameters.getColumnNumberSourceFMEntity();
-        this.columnsNumbersIdentityArray[1] = parameters.getColumnNumberSourceFMAccount();
-        this.columnsNumbersIdentityArray[2] = parameters.getColumnNumberSourceICP();
-        this.columnsNumbersIdentityArray[3] = parameters.getColumnNumberSourceCustom1();
-        this.columnsNumbersIdentityArray[4] = parameters.getColumnNumberSourceCustom2();
-        this.columnsNumbersIdentityArray[5] = parameters.getColumnNumberSourceCustom3();
-        this.columnsNumbersIdentityArray[6] = parameters.getColumnNumberSourceCustom4();
-        this.columnsNumbersIdentityArray[7] = parameters.getColumnNumberAmount();
-
-    }
-
-    private boolean checkColumnIdentity(int currentCellNumber) {
-
-        boolean result = false;
-
-        int searchResult = Arrays.binarySearch(this.columnsNumbersIdentityArray, currentCellNumber);
-
-        if (searchResult >=0) result = true;
-        else if(searchResult <0) result = false;
-
-        return result;
     }
 
     private void setFinancialDataMaping() {
