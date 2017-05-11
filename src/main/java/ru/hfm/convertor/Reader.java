@@ -135,7 +135,7 @@ class Reader {
         if (currentFinancialDataType == FinancialDataType.SourceFMEntity) {
 
             if (cellType.equals(CellType.BLANK)) {
-                dataRecord.setSourceFMEntity(new String(" "));
+                dataRecord.setSourceFMEntity(" ");
             } else if (cellType.equals(CellType.STRING)) {
                 dataRecord.setSourceFMEntity(cell.getStringCellValue());
             } else if (cellType.equals(CellType.NUMERIC)) {
@@ -147,7 +147,7 @@ class Reader {
         } else if (currentFinancialDataType == FinancialDataType.SourceFMAccount) {
 
             if (cellType.equals(CellType.BLANK)) {
-                dataRecord.setSourceFMAccount(new String(" "));
+                dataRecord.setSourceFMAccount(" ");
             } else if (cellType.equals(CellType.STRING)) {
                 dataRecord.setSourceFMAccount(cell.getStringCellValue());
             } else if (cellType.equals(CellType.NUMERIC)) {
@@ -159,7 +159,7 @@ class Reader {
         } else if (currentFinancialDataType == FinancialDataType.SourceICP) {
 
             if (cellType.equals(CellType.BLANK)) {
-                dataRecord.setSourceICP(new String(" "));
+                dataRecord.setSourceICP(" ");
             } else if (cellType.equals(CellType.STRING)) {
                 dataRecord.setSourceICP(cell.getStringCellValue());
             } else if (cellType.equals(CellType.NUMERIC)) {
@@ -171,7 +171,7 @@ class Reader {
         } else if (currentFinancialDataType == FinancialDataType.SourceCustom1) {
 
             if (cellType.equals(CellType.BLANK)) {
-                dataRecord.setSourceCustom1(new String(" "));
+                dataRecord.setSourceCustom1(" ");
             } else if (cellType.equals(CellType.STRING)) {
                 dataRecord.setSourceCustom1(cell.getStringCellValue());
             } else if (cellType.equals(CellType.NUMERIC)) {
@@ -183,7 +183,7 @@ class Reader {
         } else if (currentFinancialDataType == FinancialDataType.SourceCustom2) {
 
             if (cellType.equals(CellType.BLANK)) {
-                dataRecord.setSourceCustom2(new String(" "));
+                dataRecord.setSourceCustom2(" ");
             } else if (cellType.equals(CellType.STRING)) {
                 dataRecord.setSourceCustom2(cell.getStringCellValue());
             } else if (cellType.equals(CellType.NUMERIC)) {
@@ -195,7 +195,7 @@ class Reader {
         } else if (currentFinancialDataType == FinancialDataType.SourceCustom3) {
 
             if (cellType.equals(CellType.BLANK)) {
-                dataRecord.setSourceCustom3(new String(" "));
+                dataRecord.setSourceCustom3(" ");
             } else if (cellType.equals(CellType.STRING)) {
                 dataRecord.setSourceCustom3(cell.getStringCellValue());
             } else if (cellType.equals(CellType.NUMERIC)) {
@@ -207,7 +207,7 @@ class Reader {
         } else if (currentFinancialDataType == FinancialDataType.SourceCustom4) {
 
             if (cellType.equals(CellType.BLANK)) {
-                dataRecord.setSourceCustom4(new String(" "));
+                dataRecord.setSourceCustom4(" ");
             } else if (cellType.equals(CellType.STRING)) {
                 dataRecord.setSourceCustom4(cell.getStringCellValue());
             } else if (cellType.equals(CellType.NUMERIC)) {
@@ -219,7 +219,7 @@ class Reader {
         } else if (currentFinancialDataType == FinancialDataType.Amount) {
 
             if (cellType.equals(CellType.BLANK)) {
-                dataRecord.setSourceFMEntity(new String(" "));
+                dataRecord.setSourceFMEntity(" ");
             } else if (cellType.equals(CellType.STRING)) {
                 String stringCellValue = cell.getStringCellValue();
                 BigDecimal bigDecimalCellValue = new BigDecimal(stringCellValue).setScale(0, RoundingMode.HALF_UP);
