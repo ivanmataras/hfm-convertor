@@ -28,7 +28,6 @@ class Reader {
     private FileInputStream fileInputStream;
     private XSSFWorkbook xssfWorkbook;
     private List<DataRecord> dataArray;
-    private int[] columnsNumbersIdentityArray;
     private Map<Integer, FinancialDataType> financialDataMaping = new HashMap<Integer, FinancialDataType>();
 
     Reader() {
@@ -94,13 +93,10 @@ class Reader {
                                 if (cellType.equals(CellType.BLANK)) {
                                     continue;
                                 } else if (cellType.equals(CellType.STRING)) {
-
                                     stringBuilder.append(cell.getStringCellValue()).append(splitSymbol);
                                 } else if (cellType.equals(CellType.NUMERIC)) {
-
                                     stringBuilder.append(cell.getNumericCellValue()).append(splitSymbol);
                                 } else if (cellType.equals(CellType.FORMULA)) {
-
                                     stringBuilder.append(cell.getNumericCellValue()).append(splitSymbol);
                                 }
 
