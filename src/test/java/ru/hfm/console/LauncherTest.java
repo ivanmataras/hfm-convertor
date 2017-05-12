@@ -22,7 +22,6 @@ public class LauncherTest {
     }
 
     @Test
-
     public void balanceReadTest() {
 
         this.parameters = new Parameters();
