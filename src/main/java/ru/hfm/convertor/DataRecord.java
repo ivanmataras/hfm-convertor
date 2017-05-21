@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 class DataRecord {
 
     private String SourceFMEntity;
-    private String SourceFMAccount;
+    private Integer SourceFMAccount;
     private String SourceICP;
     private String SourceCustom1;
     private String SourceCustom2;
@@ -32,11 +32,11 @@ class DataRecord {
         SourceFMEntity = sourceFMEntity;
     }
 
-    String getSourceFMAccount() {
+    Integer getSourceFMAccount() {
         return SourceFMAccount;
     }
 
-    void setSourceFMAccount(String sourceFMAccount) {
+    void setSourceFMAccount(Integer sourceFMAccount) {
         SourceFMAccount = sourceFMAccount;
     }
 

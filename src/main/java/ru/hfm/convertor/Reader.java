@@ -143,13 +143,15 @@ class Reader {
         } else if (currentFinancialDataType == FinancialDataType.SourceFMAccount) {
 
             if (cellType.equals(CellType.BLANK)) {
-                dataRecord.setSourceFMAccount("");
+                dataRecord.setSourceFMAccount(new Integer(""));
             } else if (cellType.equals(CellType.STRING)) {
-                dataRecord.setSourceFMAccount(cell.getStringCellValue());
+                dataRecord.setSourceFMAccount(new Integer(cell.getStringCellValue()));
             } else if (cellType.equals(CellType.NUMERIC)) {
-                dataRecord.setSourceFMAccount(Double.toString(cell.getNumericCellValue()));
+                dataRecord.setSourceFMAccount(new Double(cell.getNumericCellValue()).intValue());
+                //dataRecord.setSourceFMAccount(Double.toString(cell.getNumericCellValue()));
             } else if (cellType.equals(CellType.FORMULA)) {
-                dataRecord.setSourceFMAccount(Double.toString(cell.getNumericCellValue()));
+                dataRecord.setSourceFMAccount(new Double(cell.getNumericCellValue()).intValue());
+                //dataRecord.setSourceFMAccount(Double.toString(cell.getNumericCellValue()));
             }
 
         } else if (currentFinancialDataType == FinancialDataType.SourceICP) {
