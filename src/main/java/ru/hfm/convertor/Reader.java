@@ -90,15 +90,15 @@ class Reader {
 
                                 this.setFieldValue(dataRecord, cell, cellType, currentFinancialDataType);
 
-                                if (cellType.equals(CellType.BLANK)) {
-                                    continue;
-                                } else if (cellType.equals(CellType.STRING)) {
-                                    stringBuilder.append(cell.getStringCellValue()).append(splitSymbol);
-                                } else if (cellType.equals(CellType.NUMERIC)) {
-                                    stringBuilder.append(cell.getNumericCellValue()).append(splitSymbol);
-                                } else if (cellType.equals(CellType.FORMULA)) {
-                                    stringBuilder.append(cell.getNumericCellValue()).append(splitSymbol);
-                                }
+//                                if (cellType.equals(CellType.BLANK)) {
+//                                    continue;
+//                                } else if (cellType.equals(CellType.STRING)) {
+//                                    stringBuilder.append(cell.getStringCellValue()).append(splitSymbol);
+//                                } else if (cellType.equals(CellType.NUMERIC)) {
+//                                    stringBuilder.append(cell.getNumericCellValue()).append(splitSymbol);
+//                                } else if (cellType.equals(CellType.FORMULA)) {
+//                                    stringBuilder.append(cell.getNumericCellValue()).append(splitSymbol);
+//                                }
 
                             } else if (currentFinancialDataType == FinancialDataType.NotFinancialDataType) {
                                 continue;
@@ -108,9 +108,9 @@ class Reader {
 
                         this.dataArray.add(dataRecord);
 
-                        String stringRecord = new String(stringBuilder).trim();
-                        System.out.println(stringRecord);
-                        stringBuilder.delete(0, stringBuilder.length());
+//                        String stringRecord = new String(stringBuilder).trim();
+//                        System.out.println(stringRecord);
+//                        stringBuilder.delete(0, stringBuilder.length());
 
                     }
                 }
