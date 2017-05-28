@@ -45,6 +45,15 @@ public class Parameters {
     private int columnNumberAmount;
     private int rowNumberAmount;
 
+    private boolean readSourceFMEntity;
+    private boolean readSourceFMAccount;
+    private boolean readSourceICP;
+    private boolean readSourceCustom1;
+    private boolean readSourceCustom2;
+    private boolean readSourceCustom3;
+    private boolean readSourceCustom4;
+    private boolean readAmount;
+
     public Parameters() {
 
     }
@@ -247,5 +256,82 @@ public class Parameters {
 
     public void setRowNumberAmount(int rowNumberAmount) {
         this.rowNumberAmount = rowNumberAmount;
+    }
+
+    public boolean isReadSourceFMEntity() {
+        return readSourceFMEntity;
+    }
+
+    public void setReadSourceFMEntity(boolean readSourceFMEntity) {
+        this.readSourceFMEntity = readSourceFMEntity;
+    }
+
+    public boolean isReadSourceFMAccount() {
+        return readSourceFMAccount;
+    }
+
+    public void setReadSourceFMAccount(boolean readSourceFMAccount) {
+        this.readSourceFMAccount = readSourceFMAccount;
+    }
+
+    public boolean isReadSourceICP() {
+        return readSourceICP;
+    }
+
+    public void setReadSourceICP(boolean readSourceICP) {
+        this.readSourceICP = readSourceICP;
+    }
+
+    public boolean isReadSourceCustom1() {
+        return readSourceCustom1;
+    }
+
+    public void setReadSourceCustom1(boolean readSourceCustom1) {
+        this.readSourceCustom1 = readSourceCustom1;
+    }
+
+    public boolean isReadSourceCustom2() {
+        return readSourceCustom2;
+    }
+
+    public void setReadSourceCustom2(boolean readSourceCustom2) {
+        this.readSourceCustom2 = readSourceCustom2;
+    }
+
+    public boolean isReadSourceCustom3() {
+        return readSourceCustom3;
+    }
+
+    public void setReadSourceCustom3(boolean readSourceCustom3) {
+        this.readSourceCustom3 = readSourceCustom3;
+    }
+
+    public boolean isReadSourceCustom4() {
+        return readSourceCustom4;
+    }
+
+    public void setReadSourceCustom4(boolean readSourceCustom4) {
+        this.readSourceCustom4 = readSourceCustom4;
+    }
+
+    public boolean isReadAmount() {
+        return readAmount;
+    }
+
+    public void setReadAmount(boolean readAmount) {
+        this.readAmount = readAmount;
+    }
+
+    public void setFieldsToRead() {
+
+        this.setReadSourceFMEntity(false);
+        this.setReadSourceFMAccount(true);
+        this.setReadSourceICP(true);
+        this.setReadSourceCustom1(false);
+        this.setReadSourceCustom2(false);
+        this.setReadSourceCustom3(false);
+        this.setReadSourceCustom4(false);
+        this.setReadAmount(true);
+
     }
 }

@@ -13,9 +13,9 @@ public class Convertor {
 
     private Parameters parameters;
     private Reader reader;
-    //private Normalizer normalizer;
-    //private Validator validator;
-    //private Writer writer;
+    private Normalizer normalizer;
+    private Validator validator;
+    private Writer writer;
     private List<DataRecord> dataArray;
 
     public Convertor() {
@@ -25,24 +25,31 @@ public class Convertor {
     public void convert(Parameters parameters) {
         this.setParameters(parameters);
         this.read();
+        this.normalize();
+        this.validate();
+        this.write();
     }
 
     private void read() {
         this.reader = new Reader();
+        this.parameters.setFieldsToRead();
         this.reader.setParameters(this.parameters);
         this.reader.setFile();
         this.dataArray = this.reader.readFile();
     }
 
     private void normalize() {
+        this.normalizer = new Normalizer();
 
     }
 
     private void validate() {
+        this.validator = new Validator();
 
     }
 
     private void write() {
+        this.writer = new Writer();
 
     }
 

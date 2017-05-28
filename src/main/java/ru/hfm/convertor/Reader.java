@@ -56,6 +56,7 @@ class Reader {
         int lastRowNumber = parameters.getLastRowNumber();
 
         this.setFinancialDataMaping();
+        //this.parameters.setFieldsToRead();
 
         StringBuilder stringBuilder = new StringBuilder(128);
 
@@ -124,112 +125,129 @@ class Reader {
         }
 
         return this.dataArray;
+
     }
 
     private void setFieldValue(DataRecord dataRecord, Cell cell, CellType cellType, FinancialDataType currentFinancialDataType) {
 
         if (currentFinancialDataType == FinancialDataType.SourceFMEntity) {
 
-            if (cellType.equals(CellType.BLANK)) {
-                dataRecord.setSourceFMEntity("");
-            } else if (cellType.equals(CellType.STRING)) {
-                dataRecord.setSourceFMEntity(cell.getStringCellValue());
-            } else if (cellType.equals(CellType.NUMERIC)) {
-                dataRecord.setSourceFMEntity(Double.toString(cell.getNumericCellValue()));
-            } else if (cellType.equals(CellType.FORMULA)) {
-                dataRecord.setSourceFMEntity(Double.toString(cell.getNumericCellValue()));
+            if(parameters.isReadSourceFMEntity()) {
+                if (cellType.equals(CellType.BLANK)) {
+                    dataRecord.setSourceFMEntity("");
+                } else if (cellType.equals(CellType.STRING)) {
+                    dataRecord.setSourceFMEntity(cell.getStringCellValue());
+                } else if (cellType.equals(CellType.NUMERIC)) {
+                    dataRecord.setSourceFMEntity(Double.toString(cell.getNumericCellValue()));
+                } else if (cellType.equals(CellType.FORMULA)) {
+                    dataRecord.setSourceFMEntity(Double.toString(cell.getNumericCellValue()));
+                }
             }
 
         } else if (currentFinancialDataType == FinancialDataType.SourceFMAccount) {
 
-            if (cellType.equals(CellType.BLANK)) {
-                dataRecord.setSourceFMAccount(new Integer(""));
-            } else if (cellType.equals(CellType.STRING)) {
-                dataRecord.setSourceFMAccount(new Integer(cell.getStringCellValue()));
-            } else if (cellType.equals(CellType.NUMERIC)) {
-                dataRecord.setSourceFMAccount(new Double(cell.getNumericCellValue()).intValue());
-                //dataRecord.setSourceFMAccount(Double.toString(cell.getNumericCellValue()));
-            } else if (cellType.equals(CellType.FORMULA)) {
-                dataRecord.setSourceFMAccount(new Double(cell.getNumericCellValue()).intValue());
-                //dataRecord.setSourceFMAccount(Double.toString(cell.getNumericCellValue()));
+            if(parameters.isReadSourceFMAccount()) {
+                if (cellType.equals(CellType.BLANK)) {
+                    dataRecord.setSourceFMAccount(new Integer(""));
+                } else if (cellType.equals(CellType.STRING)) {
+                    dataRecord.setSourceFMAccount(new Integer(cell.getStringCellValue()));
+                } else if (cellType.equals(CellType.NUMERIC)) {
+                    dataRecord.setSourceFMAccount(new Double(cell.getNumericCellValue()).intValue());
+                    //dataRecord.setSourceFMAccount(Double.toString(cell.getNumericCellValue()));
+                } else if (cellType.equals(CellType.FORMULA)) {
+                    dataRecord.setSourceFMAccount(new Double(cell.getNumericCellValue()).intValue());
+                    //dataRecord.setSourceFMAccount(Double.toString(cell.getNumericCellValue()));
+                }
             }
 
         } else if (currentFinancialDataType == FinancialDataType.SourceICP) {
 
-            if (cellType.equals(CellType.BLANK)) {
-                dataRecord.setSourceICP("");
-            } else if (cellType.equals(CellType.STRING)) {
-                dataRecord.setSourceICP(cell.getStringCellValue());
-            } else if (cellType.equals(CellType.NUMERIC)) {
-                dataRecord.setSourceICP(Double.toString(cell.getNumericCellValue()));
-            } else if (cellType.equals(CellType.FORMULA)) {
-                dataRecord.setSourceICP(Double.toString(cell.getNumericCellValue()));
+            if(parameters.isReadSourceICP()) {
+                if (cellType.equals(CellType.BLANK)) {
+                    dataRecord.setSourceICP("");
+                } else if (cellType.equals(CellType.STRING)) {
+                    dataRecord.setSourceICP(cell.getStringCellValue());
+                } else if (cellType.equals(CellType.NUMERIC)) {
+                    dataRecord.setSourceICP(Double.toString(cell.getNumericCellValue()));
+                } else if (cellType.equals(CellType.FORMULA)) {
+                    dataRecord.setSourceICP(Double.toString(cell.getNumericCellValue()));
+                }
             }
 
         } else if (currentFinancialDataType == FinancialDataType.SourceCustom1) {
 
-            if (cellType.equals(CellType.BLANK)) {
-                dataRecord.setSourceCustom1("");
-            } else if (cellType.equals(CellType.STRING)) {
-                dataRecord.setSourceCustom1(cell.getStringCellValue());
-            } else if (cellType.equals(CellType.NUMERIC)) {
-                dataRecord.setSourceCustom1(Double.toString(cell.getNumericCellValue()));
-            } else if (cellType.equals(CellType.FORMULA)) {
-                dataRecord.setSourceCustom1(Double.toString(cell.getNumericCellValue()));
+            if(parameters.isReadSourceCustom1()) {
+                if (cellType.equals(CellType.BLANK)) {
+                    dataRecord.setSourceCustom1("");
+                } else if (cellType.equals(CellType.STRING)) {
+                    dataRecord.setSourceCustom1(cell.getStringCellValue());
+                } else if (cellType.equals(CellType.NUMERIC)) {
+                    dataRecord.setSourceCustom1(Double.toString(cell.getNumericCellValue()));
+                } else if (cellType.equals(CellType.FORMULA)) {
+                    dataRecord.setSourceCustom1(Double.toString(cell.getNumericCellValue()));
+                }
             }
 
         } else if (currentFinancialDataType == FinancialDataType.SourceCustom2) {
 
-            if (cellType.equals(CellType.BLANK)) {
-                dataRecord.setSourceCustom2("");
-            } else if (cellType.equals(CellType.STRING)) {
-                dataRecord.setSourceCustom2(cell.getStringCellValue());
-            } else if (cellType.equals(CellType.NUMERIC)) {
-                dataRecord.setSourceCustom2(Double.toString(cell.getNumericCellValue()));
-            } else if (cellType.equals(CellType.FORMULA)) {
-                dataRecord.setSourceCustom2(Double.toString(cell.getNumericCellValue()));
+            if(parameters.isReadSourceCustom2()) {
+                if (cellType.equals(CellType.BLANK)) {
+                    dataRecord.setSourceCustom2("");
+                } else if (cellType.equals(CellType.STRING)) {
+                    dataRecord.setSourceCustom2(cell.getStringCellValue());
+                } else if (cellType.equals(CellType.NUMERIC)) {
+                    dataRecord.setSourceCustom2(Double.toString(cell.getNumericCellValue()));
+                } else if (cellType.equals(CellType.FORMULA)) {
+                    dataRecord.setSourceCustom2(Double.toString(cell.getNumericCellValue()));
+                }
             }
 
         } else if (currentFinancialDataType == FinancialDataType.SourceCustom3) {
 
-            if (cellType.equals(CellType.BLANK)) {
-                dataRecord.setSourceCustom3("");
-            } else if (cellType.equals(CellType.STRING)) {
-                dataRecord.setSourceCustom3(cell.getStringCellValue());
-            } else if (cellType.equals(CellType.NUMERIC)) {
-                dataRecord.setSourceCustom3(Double.toString(cell.getNumericCellValue()));
-            } else if (cellType.equals(CellType.FORMULA)) {
-                dataRecord.setSourceCustom3(Double.toString(cell.getNumericCellValue()));
+            if(parameters.isReadSourceCustom3()) {
+                if (cellType.equals(CellType.BLANK)) {
+                    dataRecord.setSourceCustom3("");
+                } else if (cellType.equals(CellType.STRING)) {
+                    dataRecord.setSourceCustom3(cell.getStringCellValue());
+                } else if (cellType.equals(CellType.NUMERIC)) {
+                    dataRecord.setSourceCustom3(Double.toString(cell.getNumericCellValue()));
+                } else if (cellType.equals(CellType.FORMULA)) {
+                    dataRecord.setSourceCustom3(Double.toString(cell.getNumericCellValue()));
+                }
             }
 
         } else if (currentFinancialDataType == FinancialDataType.SourceCustom4) {
 
-            if (cellType.equals(CellType.BLANK)) {
-                dataRecord.setSourceCustom4("");
-            } else if (cellType.equals(CellType.STRING)) {
-                dataRecord.setSourceCustom4(cell.getStringCellValue());
-            } else if (cellType.equals(CellType.NUMERIC)) {
-                dataRecord.setSourceCustom4(Double.toString(cell.getNumericCellValue()));
-            } else if (cellType.equals(CellType.FORMULA)) {
-                dataRecord.setSourceCustom4(Double.toString(cell.getNumericCellValue()));
+            if(parameters.isReadSourceCustom4()) {
+                if (cellType.equals(CellType.BLANK)) {
+                    dataRecord.setSourceCustom4("");
+                } else if (cellType.equals(CellType.STRING)) {
+                    dataRecord.setSourceCustom4(cell.getStringCellValue());
+                } else if (cellType.equals(CellType.NUMERIC)) {
+                    dataRecord.setSourceCustom4(Double.toString(cell.getNumericCellValue()));
+                } else if (cellType.equals(CellType.FORMULA)) {
+                    dataRecord.setSourceCustom4(Double.toString(cell.getNumericCellValue()));
+                }
             }
 
         } else if (currentFinancialDataType == FinancialDataType.Amount) {
 
-            if (cellType.equals(CellType.BLANK)) {
-                dataRecord.setSourceFMEntity("");
-            } else if (cellType.equals(CellType.STRING)) {
-                String stringCellValue = cell.getStringCellValue();
-                BigDecimal bigDecimalCellValue = new BigDecimal(stringCellValue).setScale(0, RoundingMode.HALF_UP);
-                dataRecord.setAmount(bigDecimalCellValue);
-            } else if (cellType.equals(CellType.NUMERIC)) {
-                Double doubleCellValue = cell.getNumericCellValue();
-                BigDecimal bigDecimalCellValue = new BigDecimal(doubleCellValue.doubleValue()).setScale(0, RoundingMode.HALF_UP);
-                dataRecord.setAmount(bigDecimalCellValue);
-            } else if (cellType.equals(CellType.FORMULA)) {
-                Double doubleCellValue = cell.getNumericCellValue();
-                BigDecimal bigDecimalCellValue = new BigDecimal(doubleCellValue.doubleValue()).setScale(0, RoundingMode.HALF_UP);
-                dataRecord.setAmount(bigDecimalCellValue);
+            if(parameters.isReadAmount()) {
+                if (cellType.equals(CellType.BLANK)) {
+                    dataRecord.setSourceFMEntity("");
+                } else if (cellType.equals(CellType.STRING)) {
+                    String stringCellValue = cell.getStringCellValue();
+                    BigDecimal bigDecimalCellValue = new BigDecimal(stringCellValue).setScale(0, RoundingMode.HALF_UP);
+                    dataRecord.setAmount(bigDecimalCellValue);
+                } else if (cellType.equals(CellType.NUMERIC)) {
+                    Double doubleCellValue = cell.getNumericCellValue();
+                    BigDecimal bigDecimalCellValue = new BigDecimal(doubleCellValue.doubleValue()).setScale(0, RoundingMode.HALF_UP);
+                    dataRecord.setAmount(bigDecimalCellValue);
+                } else if (cellType.equals(CellType.FORMULA)) {
+                    Double doubleCellValue = cell.getNumericCellValue();
+                    BigDecimal bigDecimalCellValue = new BigDecimal(doubleCellValue.doubleValue()).setScale(0, RoundingMode.HALF_UP);
+                    dataRecord.setAmount(bigDecimalCellValue);
+                }
             }
 
         }
