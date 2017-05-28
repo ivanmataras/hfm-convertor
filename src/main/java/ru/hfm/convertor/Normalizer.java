@@ -9,6 +9,7 @@ package ru.hfm.convertor;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.List;
 
 class Normalizer {
 
@@ -21,10 +22,47 @@ class Normalizer {
     private final String DEFAULT_SourceCustom4_VALUE = new String("[None]");
     private final BigDecimal DEFAULT_Amount_VALUE = new BigDecimal(0).setScale(0, RoundingMode.HALF_UP);
 
+    private List<DataRecord> dataArray;
+
     Normalizer() {
 
     }
 
+    List<DataRecord> normalize() {
 
+        return dataArray;
+    }
+
+    private void setDefaultValueForSourceFMEntity() {
+
+    }
+
+    private void setDefaultValueForSourceFMAccount() {
+
+    }
+
+    private void setDefaultValueForSourceICP() {
+
+    }
+
+    private void setDefaultValueForSourceCustom1() {
+
+    }
+
+    private void setDefaultValueForSourceCustom2() {
+
+    }
+
+    private void setDefaultValueForSourceCustom3() {
+
+    }
+
+    private void setDefaultValueForSourceCustom4() {
+
+    }
+
+    private void setDefaultValueForAmount() {
+
+    }
 
 }
