@@ -39,8 +39,8 @@ public class Convertor {
     }
 
     private void normalize() {
-        this.normalizer = new Normalizer();
-
+        this.normalizer = new Normalizer(this.parameters, this.dataArray);
+        this.dataArray = this.normalizer.normalize();
     }
 
     private void validate() {
