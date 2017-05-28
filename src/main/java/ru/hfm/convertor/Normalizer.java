@@ -106,15 +106,15 @@ class Normalizer {
 
             if (parameters.getSectionName() == FinancialDataSection.BALANCE_LOCSTAT.toString()) {
                 dataArrayEntity.setSourceCustom4(DEFAULT_SourceCustom4_LOCSTAT_VALUE);
-            } else if(parameters.getSectionName() == FinancialDataSection.BALANCE_GAAPADJ.toString()) {
+            } else if (parameters.getSectionName() == FinancialDataSection.BALANCE_GAAPADJ.toString()) {
                 dataArrayEntity.setSourceCustom4(DEFAULT_SourceCustom4_GAAPADJ_VALUE);
-            } else if(parameters.getSectionName() == FinancialDataSection.INCOME_LOCSTAT.toString()) {
+            } else if (parameters.getSectionName() == FinancialDataSection.INCOME_LOCSTAT.toString()) {
                 dataArrayEntity.setSourceCustom4(DEFAULT_SourceCustom4_LOCSTAT_VALUE);
-            } else if(parameters.getSectionName() == FinancialDataSection.INCOME_GAAPADJ.toString()) {
+            } else if (parameters.getSectionName() == FinancialDataSection.INCOME_GAAPADJ.toString()) {
                 dataArrayEntity.setSourceCustom4(DEFAULT_SourceCustom4_GAAPADJ_VALUE);
-            } else if(parameters.getSectionName() == FinancialDataSection.ROLLFORWARD_LOCSTAT.toString()) {
+            } else if (parameters.getSectionName() == FinancialDataSection.ROLLFORWARD_LOCSTAT.toString()) {
                 dataArrayEntity.setSourceCustom4(DEFAULT_SourceCustom4_LOCSTAT_VALUE);
-            } else if(parameters.getSectionName() == FinancialDataSection.ROLLFORWARD_GAAPADJ.toString()) {
+            } else if (parameters.getSectionName() == FinancialDataSection.ROLLFORWARD_GAAPADJ.toString()) {
                 dataArrayEntity.setSourceCustom4(DEFAULT_SourceCustom4_GAAPADJ_VALUE);
             }
 

@@ -132,7 +132,7 @@ class Reader {
 
         if (currentFinancialDataType == FinancialDataType.SourceFMEntity) {
 
-            if(parameters.isReadSourceFMEntity()) {
+            if (parameters.isReadSourceFMEntity()) {
                 if (cellType.equals(CellType.BLANK)) {
                     dataRecord.setSourceFMEntity("");
                 } else if (cellType.equals(CellType.STRING)) {
@@ -146,7 +146,7 @@ class Reader {
 
         } else if (currentFinancialDataType == FinancialDataType.SourceFMAccount) {
 
-            if(parameters.isReadSourceFMAccount()) {
+            if (parameters.isReadSourceFMAccount()) {
                 if (cellType.equals(CellType.BLANK)) {
                     dataRecord.setSourceFMAccount(new Integer(""));
                 } else if (cellType.equals(CellType.STRING)) {
@@ -162,7 +162,7 @@ class Reader {
 
         } else if (currentFinancialDataType == FinancialDataType.SourceICP) {
 
-            if(parameters.isReadSourceICP()) {
+            if (parameters.isReadSourceICP()) {
                 if (cellType.equals(CellType.BLANK)) {
                     dataRecord.setSourceICP("");
                 } else if (cellType.equals(CellType.STRING)) {
@@ -176,7 +176,7 @@ class Reader {
 
         } else if (currentFinancialDataType == FinancialDataType.SourceCustom1) {
 
-            if(parameters.isReadSourceCustom1()) {
+            if (parameters.isReadSourceCustom1()) {
                 if (cellType.equals(CellType.BLANK)) {
                     dataRecord.setSourceCustom1("");
                 } else if (cellType.equals(CellType.STRING)) {
@@ -190,7 +190,7 @@ class Reader {
 
         } else if (currentFinancialDataType == FinancialDataType.SourceCustom2) {
 
-            if(parameters.isReadSourceCustom2()) {
+            if (parameters.isReadSourceCustom2()) {
                 if (cellType.equals(CellType.BLANK)) {
                     dataRecord.setSourceCustom2("");
                 } else if (cellType.equals(CellType.STRING)) {
@@ -204,7 +204,7 @@ class Reader {
 
         } else if (currentFinancialDataType == FinancialDataType.SourceCustom3) {
 
-            if(parameters.isReadSourceCustom3()) {
+            if (parameters.isReadSourceCustom3()) {
                 if (cellType.equals(CellType.BLANK)) {
                     dataRecord.setSourceCustom3("");
                 } else if (cellType.equals(CellType.STRING)) {
@@ -218,7 +218,7 @@ class Reader {
 
         } else if (currentFinancialDataType == FinancialDataType.SourceCustom4) {
 
-            if(parameters.isReadSourceCustom4()) {
+            if (parameters.isReadSourceCustom4()) {
                 if (cellType.equals(CellType.BLANK)) {
                     dataRecord.setSourceCustom4("");
                 } else if (cellType.equals(CellType.STRING)) {
@@ -232,7 +232,7 @@ class Reader {
 
         } else if (currentFinancialDataType == FinancialDataType.Amount) {
 
-            if(parameters.isReadAmount()) {
+            if (parameters.isReadAmount()) {
                 if (cellType.equals(CellType.BLANK)) {
                     dataRecord.setSourceFMEntity("");
                 } else if (cellType.equals(CellType.STRING)) {
