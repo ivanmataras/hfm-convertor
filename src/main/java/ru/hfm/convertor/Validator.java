@@ -19,6 +19,7 @@ class Validator {
 
     private Parameters parameters;
     private List<DataRecord> dataArray;
+    Connection connection;
 
     Validator(Parameters parameters, List<DataRecord> dataArray) {
         this.parameters = parameters;
@@ -27,6 +28,8 @@ class Validator {
     }
 
     List<DataRecord> validate() {
+
+        connection = getConnection();
 
         return this.dataArray;
     }
