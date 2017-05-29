@@ -38,7 +38,7 @@ class Validator {
         try {
             String url = "jdbc:sqlite:E:\\Development\\HFM convertor project\\database\\database.db";
             connection = DriverManager.getConnection(url);
-            System.out.println("Connection to SQLite has been established.")
+            System.out.println("Connection to SQLite has been established.");
             //return connection;
         } catch (SQLException exception) {
             exception.printStackTrace();
