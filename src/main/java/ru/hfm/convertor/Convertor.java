@@ -44,7 +44,8 @@ public class Convertor {
     }
 
     private void validate() {
-        this.validator = new Validator();
+        this.validator = new Validator(this.parameters, this.dataArray);
+        this.dataArray = this.validator.validate();
 
     }
 
