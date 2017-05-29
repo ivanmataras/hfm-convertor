@@ -14,7 +14,6 @@ import java.sql.Statement;
  * @since 06.04.2017
  */
 
-
 class Validator {
 
     private Parameters parameters;
