@@ -23,8 +23,8 @@ class Normalizer {
     private final String DEFAULT_SourceCustom4_VALUE = "[None]";
     private final BigDecimal DEFAULT_Amount_VALUE = new BigDecimal(0).setScale(0, RoundingMode.HALF_UP);
 
-    private final String DEFAULT_SourceCustom4_LOCSTAT_VALUE = new String("LOCSTAT");
-    private final String DEFAULT_SourceCustom4_GAAPADJ_VALUE = new String("GAAPADJ");
+    private final String DEFAULT_SourceCustom4_LOCSTAT_VALUE = "LOCSTAT";
+    private final String DEFAULT_SourceCustom4_GAAPADJ_VALUE = "GAAPADJ";
 
     private Parameters parameters;
     private List<DataRecord> dataArray;
