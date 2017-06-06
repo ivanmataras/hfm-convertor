@@ -334,4 +334,12 @@ public class Parameters {
         this.setReadAmount(true);
 
     }
+
+    public String getDataBaseTableName() {
+
+        String dataBaseTableName = this.getSectionName();
+        return dataBaseTableName;
+
+    }
+
 }

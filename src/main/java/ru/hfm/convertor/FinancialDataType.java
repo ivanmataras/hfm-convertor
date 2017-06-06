@@ -9,6 +9,14 @@ package ru.hfm.convertor;
 
 enum FinancialDataType {
 
-    SourceFMEntity, SourceFMAccount, SourceICP, SourceCustom1, SourceCustom2, SourceCustom3, SourceCustom4, Amount, NotFinancialDataType
+    SourceFMEntity,
+    SourceFMAccount,
+    SourceICP,
+    SourceCustom1,
+    SourceCustom2,
+    SourceCustom3,
+    SourceCustom4,
+    Amount,
+    NotFinancialDataType
 
 }

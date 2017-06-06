@@ -34,6 +34,7 @@ class Validator {
         this.referenceData = getReferenceDataFromDataBase();
 
         return this.dataArray;
+
     }
 
     List<DataRecord> getReferenceDataFromDataBase() {
@@ -45,10 +46,15 @@ class Validator {
             // create a database connection
             String url = "jdbc:sqlite:E:\\Development\\HFM convertor project\\database\\database.db";
             connection = DriverManager.getConnection(url);
-            PreparedStatement preparedStatement = connection.prepareStatement(getStatementText());
-            preparedStatement.setString(1, "LOCSTAT");
+            //PreparedStatement preparedStatement = connection.prepareStatement(getStatementText());
+            Statement statement = connection.createStatement();
 
-            ResultSet resultSet = preparedStatement.executeQuery();
+            String dataBaseTableName = this.parameters.getDataBaseTableName();
+
+            //preparedStatement.setString(1, dataBaseTableName);
+
+            //ResultSet resultSet = preparedStatement.executeQuery();
+            ResultSet resultSet = statement.executeQuery(getStatementText());
 
             while (resultSet.next()) {
 
@@ -86,17 +92,9 @@ class Validator {
 
     private String getStatementText() {
 
-        final String statementText = "SELECT SourceFMEntity,\n" +
-                "  SourceFMAccount,\n" +
-                "  SourceICP,\n" +
-                "  SourceCustom1,\n" +
-                "  SourceCustom2,\n" +
-                "  SourceCustom3,\n" +
-                "  SourceCustom4,\n" +
-                "  Amount\n" +
-                "FROM BALANCE\n" +
-                "WHERE SourceCustom4 = ?";
+        final String statementText = "SELECT SourceFMEntity, SourceFMAccount, SourceICP, SourceCustom1, SourceCustom2, SourceCustom3, SourceCustom4, Amount FROM ".concat(this.parameters.getDataBaseTableName());
         return statementText;
+
     }
 
 }
