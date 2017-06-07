@@ -24,7 +24,7 @@ public class LauncherTest {
 
         this.parameters.setInputFile("E:\\Development\\HFM convertor project\\HFM март 2017\\Расшифровка  МАРТ 2017.xlsx");
         this.parameters.setOutputFile("E:\\Development\\HFM convertor project\\HFM март 2017\\output.txt");
-        this.parameters.setSheetName("загр баланс");
+        this.parameters.setSheetName("загр баланс перемеш");
         this.parameters.setSectionName("BALANCE_LOCSTAT");
         this.parameters.setScenario("Actual");
         this.parameters.setYear(2017);

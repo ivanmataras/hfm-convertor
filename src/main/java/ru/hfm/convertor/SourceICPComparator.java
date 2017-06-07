@@ -9,11 +9,17 @@ import java.util.Comparator;
  * @since 01.06.2017
  */
 
-class SourceICPComparator implements Comparator<String> {
+class SourceICPComparator implements Comparator<DataRecord> {
+
+    SourceICPComparator() {
+
+    }
 
     @Override
-    public int compare(String o1, String o2) {
-        return o1.compareTo(o2);
+    public int compare(DataRecord o1, DataRecord o2) {
+
+        return 0;
+
     }
 
 }

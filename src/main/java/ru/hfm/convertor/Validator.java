@@ -1,6 +1,8 @@
 package ru.hfm.convertor;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -20,10 +22,11 @@ class Validator {
 
     private Parameters parameters;
     private List<DataRecord> dataArray;
-    private List<DataRecord> referenceData;
+    private List<DataRecord> referenceDataArray = new ArrayList<DataRecord>();
     //Connection connection;
 
     Validator(Parameters parameters, List<DataRecord> dataArray) {
+
         this.parameters = parameters;
         this.dataArray = dataArray;
 
@@ -31,29 +34,25 @@ class Validator {
 
     List<DataRecord> validate() {
 
-        this.referenceData = getReferenceDataFromDataBase();
+        this.getReferenceDataFromDataBase();
+        this.sortdataArray();
 
         return this.dataArray;
 
     }
 
-    List<DataRecord> getReferenceDataFromDataBase() {
+    private void getReferenceDataFromDataBase() {
 
         List<DataRecord> referenceData = new ArrayList<DataRecord>();
         Connection connection = null;
 
         try {
+
             // create a database connection
             String url = "jdbc:sqlite:E:\\Development\\HFM convertor project\\database\\database.db";
             connection = DriverManager.getConnection(url);
-            //PreparedStatement preparedStatement = connection.prepareStatement(getStatementText());
             Statement statement = connection.createStatement();
-
             String dataBaseTableName = this.parameters.getDataBaseTableName();
-
-            //preparedStatement.setString(1, dataBaseTableName);
-
-            //ResultSet resultSet = preparedStatement.executeQuery();
             ResultSet resultSet = statement.executeQuery(getStatementText());
 
             while (resultSet.next()) {
@@ -69,25 +68,24 @@ class Validator {
                 dataRecord.setSourceCustom4(resultSet.getString("SourceCustom4"));
                 dataRecord.setAmount(resultSet.getBigDecimal("Amount"));
 
-                referenceData.add(dataRecord);
+                referenceDataArray.add(dataRecord);
 
             }
 
-        } catch (SQLException e) {
+        } catch (SQLException exception) {
             // if the error message is "out of memory",
             // it probably means no database file is found
-            System.err.println(e.getMessage());
+            exception.printStackTrace();
         } finally {
             try {
                 if (connection != null)
                     connection.close();
-            } catch (SQLException e) {
+            } catch (SQLException exception) {
                 // connection close failed.
-                System.err.println(e);
+                exception.printStackTrace();
             }
         }
 
-        return referenceData;
     }
 
     private String getStatementText() {
@@ -97,4 +95,14 @@ class Validator {
 
     }
 
+    private void sortdataArray() {
+
+        Comparator<DataRecord> sourceFMAccountComparator = new SourceFMAccountComparator();
+        Collections.sort(this.dataArray, sourceFMAccountComparator);
+
+    }
+
+    private void sortreferenceDataArray() {
+
+    }
 }
