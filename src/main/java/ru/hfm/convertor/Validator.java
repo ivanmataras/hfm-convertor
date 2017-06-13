@@ -100,19 +100,4 @@ class Validator {
 
     }
 
-    private void sortdataArrayBySourceFMAccount() {
-
-        Comparator<DataRecord> sourceFMAccountComparator = new SourceFMAccountComparator();
-        Collections.sort(this.dataArray, sourceFMAccountComparator);
-
-    }
-
-    private void sortReferenceDataArrayBySourceFMAccountThenSortBySourceICP() {
-
-        Comparator<DataRecord> sourceFMAccountComparator = new SourceFMAccountComparator().thenComparing(new SourceICPComparator());
-        Collections.sort(this.referenceDataArray, sourceFMAccountComparator);
-
-    }
-
-
 }
