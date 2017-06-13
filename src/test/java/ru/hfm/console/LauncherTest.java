@@ -1,5 +1,6 @@
 package ru.hfm.console;
 
+
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -19,11 +20,13 @@ public class LauncherTest {
 
     Parameters parameters;
     Convertor convertor;
+    String XLSXFilePath;
 
     @Test
     @Before
-    public void testXLSXFile() {
+    public void testXLSXFilePath() {
 
+        XLSXFilePath = getClass().getResource("/test_01.xlsx").getPath();
 
     }
 
@@ -32,7 +35,8 @@ public class LauncherTest {
 
         this.parameters = new Parameters();
 
-        this.parameters.setInputFile("E:\\Development\\HFM convertor project\\HFM март 2017\\Расшифровка  МАРТ 2017.xlsx");
+        this.parameters.setInputFile(this.XLSXFilePath);
+        //this.parameters.setInputFile("E:\\Development\\HFM convertor project\\HFM март 2017\\Расшифровка  МАРТ 2017.xlsx");
         this.parameters.setOutputFile("E:\\Development\\HFM convertor project\\HFM март 2017\\output.txt");
         this.parameters.setSheetName("загр баланс перемеш");
         this.parameters.setSectionName("BALANCE_LOCSTAT");
