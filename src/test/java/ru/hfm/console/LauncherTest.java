@@ -1,9 +1,12 @@
 package ru.hfm.console;
 
+import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 import ru.hfm.convertor.Convertor;
 import ru.hfm.convertor.Parameters;
+
+import java.io.File;
 
 /*
  * Main class
@@ -16,6 +19,13 @@ public class LauncherTest {
 
     Parameters parameters;
     Convertor convertor;
+
+    @Test
+    @Before
+    public void testXLSXFile() {
+
+
+    }
 
     @Test
     public void balanceReadTest() {

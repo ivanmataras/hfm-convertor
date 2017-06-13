@@ -35,7 +35,12 @@ class Validator {
     List<DataRecord> validate() {
 
         this.getReferenceDataFromDataBase();
-        this.sortdataArrayBySourceFMAccount();
+
+//        Comparator<DataRecord> sourceFMAccountComparator = new SourceFMAccountComparator();
+//        Collections.sort(this.dataArray, sourceFMAccountComparator);
+
+        Comparator<DataRecord> sourceFMAccountComparatorThenSourceICPComparator = new SourceFMAccountComparator().thenComparing(new SourceICPComparator());
+        Collections.sort(this.referenceDataArray, sourceFMAccountComparatorThenSourceICPComparator);
 
         return this.dataArray;
 
@@ -102,10 +107,12 @@ class Validator {
 
     }
 
-    private void sortReferenceDataArrayBySourceFMAccount() {
+    private void sortReferenceDataArrayBySourceFMAccountThenSortBySourceICP() {
 
-        Comparator<DataRecord> sourceFMAccountComparator = new SourceFMAccountComparator();
+        Comparator<DataRecord> sourceFMAccountComparator = new SourceFMAccountComparator().thenComparing(new SourceICPComparator());
         Collections.sort(this.referenceDataArray, sourceFMAccountComparator);
 
     }
+
+
 }
