@@ -42,6 +42,9 @@ public class Launcher {
                 String outputFile = validator.getString("Enter file path for output data");
                 this.parameters.setOutputFile(outputFile);
 
+                String connectionString = validator.getString("Enter database connection string (file path)");
+                this.parameters.setConnectionString(connectionString);
+
                 String sheetName = validator.getString("Enter sheet name");
                 this.parameters.setSheetName(sheetName);
                 String sectionName = validator.getString("Enter section name");

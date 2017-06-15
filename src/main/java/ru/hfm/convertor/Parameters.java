@@ -12,7 +12,10 @@ public class Parameters {
     private String inputFile;
     private String outputFile;
 
+    private String connectionString;
+
     private String sheetName;
+
     private String sectionName;
     private String scenario;
     private int year;
@@ -72,6 +75,14 @@ public class Parameters {
 
     public void setOutputFile(String outputFile) {
         this.outputFile = outputFile;
+    }
+
+    public String getConnectionString() {
+        return connectionString;
+    }
+
+    public void setConnectionString(String connectionString) {
+        this.connectionString = connectionString;
     }
 
     public String getSheetName() {

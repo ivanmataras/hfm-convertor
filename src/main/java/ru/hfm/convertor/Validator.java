@@ -54,7 +54,8 @@ class Validator {
         try {
 
             // create a database connection
-            String url = "jdbc:sqlite:E:\\Development\\HFM convertor project\\database\\database.db";
+            //String url = "jdbc:sqlite:E:\\Development\\HFM convertor project\\database\\database.db";
+            String url = "jdbc:sqlite:".concat(this.parameters.getConnectionString());
             connection = DriverManager.getConnection(url);
             Statement statement = connection.createStatement();
             String dataBaseTableName = this.parameters.getDataBaseTableName();
