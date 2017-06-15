@@ -37,9 +37,13 @@ class Validator {
         this.getReferenceDataFromDataBase();
 
 //        Comparator<DataRecord> sourceFMAccountComparator = new SourceFMAccountComparator();
+//
 //        Collections.sort(this.dataArray, sourceFMAccountComparator);
+//        Collections.sort(this.referenceDataArray, sourceFMAccountComparator);
 
         Comparator<DataRecord> sourceFMAccountComparatorThenSourceICPComparator = new SourceFMAccountComparator().thenComparing(new SourceICPComparator());
+
+        Collections.sort(this.dataArray, sourceFMAccountComparatorThenSourceICPComparator);
         Collections.sort(this.referenceDataArray, sourceFMAccountComparatorThenSourceICPComparator);
 
         return this.dataArray;

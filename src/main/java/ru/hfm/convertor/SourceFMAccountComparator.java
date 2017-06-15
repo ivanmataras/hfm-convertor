@@ -18,17 +18,7 @@ class SourceFMAccountComparator implements Comparator<DataRecord> {
     @Override
     public int compare(DataRecord o1, DataRecord o2) {
 
-        int result = 0;
-
-        if (o1.getSourceFMAccount() > o2.getSourceFMAccount()) {
-            result = 1;
-        } else if (o1.getSourceFMAccount() < o2.getSourceFMAccount()) {
-            result = -1;
-        } else if (o1.getSourceFMAccount() == o2.getSourceFMAccount()) {
-            result = 0;
-        }
-
-        return result;
+        return o1.getSourceFMAccount().compareTo(o2.getSourceFMAccount());
 
     }
 

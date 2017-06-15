@@ -49,7 +49,8 @@ public class LauncherTest {
         this.parameters.setYear(2017);
         this.parameters.setMonth(3);
         this.parameters.setFirstRowNumber(4);
-        this.parameters.setLastRowNumber(51);
+        //this.parameters.setLastRowNumber(51);
+        this.parameters.setLastRowNumber(53);
         this.parameters.setColumnNumberSourceFMEntity(0);
         this.parameters.setColumnNumberSourceFMAccount(1);
         this.parameters.setColumnNumberSourceICP(2);

@@ -18,7 +18,7 @@ class SourceICPComparator implements Comparator<DataRecord> {
     @Override
     public int compare(DataRecord o1, DataRecord o2) {
 
-        return 0;
+        return o1.getSourceICP().compareTo(o2.getSourceICP());
 
     }
 
