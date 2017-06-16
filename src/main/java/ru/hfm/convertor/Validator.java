@@ -56,19 +56,23 @@ class Validator {
 
         for (DataRecord inputDataRecord : inputDataArray) {
 
-           Integer inputSourceFMAccount = inputDataRecord.getSourceFMAccount();
-           String inputSourceICP = inputDataRecord.getSourceICP();
+            Integer inputSourceFMAccount = inputDataRecord.getSourceFMAccount();
+            String inputSourceICP = inputDataRecord.getSourceICP();
 
             for (DataRecord databaseDataRecord : databaseDataArray) {
 
                 Integer databaseSourceFMAccount = databaseDataRecord.getSourceFMAccount();
                 String databaseSourceICP = databaseDataRecord.getSourceICP();
 
+//                int position = databaseDataArray.indexOf(databaseDataRecord);
+
                 if (inputSourceFMAccount.compareTo(databaseSourceFMAccount) == 0 & inputSourceICP.compareTo(databaseSourceICP) == 0) {
 
                     inputDataRecord.fillDataRecord(databaseDataRecord);
+//                    position++;
+//                    continue;
 
-                }else if (inputSourceFMAccount.compareTo(databaseSourceFMAccount) != 0 & inputSourceICP.compareTo(databaseSourceICP) != 0) {
+                } else if (inputSourceFMAccount.compareTo(databaseSourceFMAccount) != 0 & inputSourceICP.compareTo(databaseSourceICP) != 0) {
 
                 }
 
@@ -77,6 +81,7 @@ class Validator {
         }
 
         return mergedDataSet;
+
     }
 
     private void getReferenceDataFromDataBase() {
