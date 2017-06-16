@@ -50,6 +50,35 @@ class Validator {
 
     }
 
+    private List<DataRecord> mergeData(List<DataRecord> inputDataArray, List<DataRecord> databaseDataArray) {
+
+        List<DataRecord> mergedDataSet = new ArrayList<DataRecord>();
+
+        for (DataRecord inputDataRecord : inputDataArray) {
+
+           Integer inputSourceFMAccount = inputDataRecord.getSourceFMAccount();
+           String inputSourceICP = inputDataRecord.getSourceICP();
+
+            for (DataRecord databaseDataRecord : databaseDataArray) {
+
+                Integer databaseSourceFMAccount = databaseDataRecord.getSourceFMAccount();
+                String databaseSourceICP = databaseDataRecord.getSourceICP();
+
+                if (inputSourceFMAccount.compareTo(databaseSourceFMAccount) == 0 & inputSourceICP.compareTo(databaseSourceICP) == 0) {
+
+                    inputDataRecord.fillDataRecord(databaseDataRecord);
+
+                }else if (inputSourceFMAccount.compareTo(databaseSourceFMAccount) != 0 & inputSourceICP.compareTo(databaseSourceICP) != 0) {
+
+                }
+
+            }
+
+        }
+
+        return mergedDataSet;
+    }
+
     private void getReferenceDataFromDataBase() {
 
         List<DataRecord> referenceData = new ArrayList<DataRecord>();

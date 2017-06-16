@@ -87,4 +87,17 @@ class DataRecord {
     void setAmount(BigDecimal amount) {
         Amount = amount;
     }
+
+    void fillDataRecord(DataRecord dataRecord) {
+
+        //this.setSourceFMEntity(dataRecord.getSourceFMEntity());
+        //this.setSourceFMAccount(dataRecord.getSourceFMAccount());
+        //this.setSourceICP(dataRecord.getSourceICP());
+        this.setSourceCustom1(dataRecord.getSourceCustom1());
+        this.setSourceCustom2(dataRecord.getSourceCustom2());
+        this.setSourceCustom3(dataRecord.getSourceCustom3());
+        this.setSourceCustom4(dataRecord.getSourceCustom4());
+        //this.setAmount(dataRecord.getAmount());
+
+    }
 }
