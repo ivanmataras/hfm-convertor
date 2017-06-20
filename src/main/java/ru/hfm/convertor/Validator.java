@@ -38,98 +38,39 @@ class Validator {
 
         this.getReferenceDataFromDataBase();
 
-/*        Comparator<DataRecord> sourceFMAccountComparator = new SourceFMAccountComparator();
+        List<DataRecord> mergeResult = this.mergeDataUsingStandardBinarySearch();
 
-        Collections.sort(this.dataArray, sourceFMAccountComparator);
-        Collections.sort(this.referenceDataArray, sourceFMAccountComparator);*/
+        return mergeResult;
+
+    }
+
+    private List<DataRecord> mergeDataUsingStandardBinarySearch() {
 
         Comparator<DataRecord> sourceFMAccountComparatorThenSourceICPComparator = new SourceFMAccountComparator().thenComparing(new SourceICPComparator());
 
         Collections.sort(this.dataArray, sourceFMAccountComparatorThenSourceICPComparator);
         Collections.sort(this.referenceDataArray, sourceFMAccountComparatorThenSourceICPComparator);
 
-        List<DataRecord> mergeResult = this.mergeDataUsingOriginalAlgorithm(this.dataArray, referenceDataArray);
+        for (DataRecord inputDataRecordElement : this.dataArray) {
 
-        return this.dataArray;
+            int elementIndex = Collections.binarySearch(this.referenceDataArray, inputDataRecordElement, sourceFMAccountComparatorThenSourceICPComparator);
 
-    }
+            if (elementIndex >= 0) {
+                DataRecord databaseDataRecordElement = this.referenceDataArray.get(elementIndex);
+                inputDataRecordElement.fillDataRecord(databaseDataRecordElement);
+            } else if (elementIndex < 0) {
 
-    private List<DataRecord> mergeDataUsingOriginalAlgorithm(List<DataRecord> inputDataArray, List<DataRecord> databaseDataArray) {
-
-        DataRecord[] inputArray = inputDataArray.toArray(new DataRecord[inputDataArray.size()]);
-        DataRecord[] databaseArray = databaseDataArray.toArray(new DataRecord[databaseDataArray.size()]);
-
-        for (int inputItemIndex = 0; inputItemIndex <= inputArray.length; inputItemIndex++) {
-
-            DataRecord inputDataRecord = inputArray[inputItemIndex];
-            Integer inputSourceFMAccount = inputDataRecord.getSourceFMAccount();
-            String inputSourceICP = inputDataRecord.getSourceICP();
-
-            for (int databaseItemIndex = currentDatabaseItemIndex; databaseItemIndex <= databaseArray.length; databaseItemIndex++) {
-
-                if (currentDatabaseItemIndex <= databaseArray.length) {
-
-                    DataRecord databaseDataRecord = databaseArray[databaseItemIndex];
-                    Integer databaseSourceFMAccount = databaseDataRecord.getSourceFMAccount();
-                    String databaseSourceICP = databaseDataRecord.getSourceICP();
-
-                    if (inputSourceFMAccount.compareTo(databaseSourceFMAccount) == 0 & inputSourceICP.compareTo(databaseSourceICP) == 0) {
-
-                        inputDataRecord.fillDataRecord(databaseDataRecord);
-                        currentDatabaseItemIndex = ++databaseItemIndex;
-                        break;
-
-                    } else if (inputSourceFMAccount.compareTo(databaseSourceFMAccount) != 0 ^ inputSourceICP.compareTo(databaseSourceICP) != 0) {
-
-                        currentDatabaseItemIndex = ++databaseItemIndex;
-                        break;
-
-                    /*
-                    * TODO
-                    * Implement logging for log merge mistakes.
-                    * */
-
-                    }
-
-                } else if (currentDatabaseItemIndex > databaseArray.length) break;
+                /*
+                * TODO
+                * implement element not found case and it's loging
+                * */
 
             }
 
         }
-
-        List<DataRecord> mergedDataSet = new ArrayList<DataRecord>(Arrays.asList(inputArray));
-
-        return mergedDataSet;
-
-/*        for (DataRecord inputDataRecord : inputDataArray) {
-
-            Integer inputSourceFMAccount = inputDataRecord.getSourceFMAccount();
-            String inputSourceICP = inputDataRecord.getSourceICP();
-
-            for (DataRecord databaseDataRecord : databaseDataArray) {
-
-                Integer databaseSourceFMAccount = databaseDataRecord.getSourceFMAccount();
-                String databaseSourceICP = databaseDataRecord.getSourceICP();
-
-                if (inputSourceFMAccount.compareTo(databaseSourceFMAccount) == 0 & inputSourceICP.compareTo(databaseSourceICP) == 0) {
-
-                    inputDataRecord.fillDataRecord(databaseDataRecord);
-
-                } else if (inputSourceFMAccount.compareTo(databaseSourceFMAccount) != 0 & inputSourceICP.compareTo(databaseSourceICP) != 0) {
-
-                }
-
-            }
-
-        }
-
-        return mergedDataSet;*/
-
-    }
-
-    private List<DataRecord> mergeDataUsingStandardBinarySearch(List<DataRecord> inputDataArray, List<DataRecord> databaseDataArray) {
 
         List<DataRecord> mergedDataSet = new ArrayList<DataRecord>();
+        mergedDataSet.addAll(this.dataArray);
 
         return mergedDataSet;
 

@@ -3,7 +3,7 @@ package ru.hfm.convertor;
 import java.util.Comparator;
 
 /*
- * Class implements data entity
+ * Class implements SourceFMAccountComparator comparator
  *
  * @author imataras
  * @since 01.06.2017
