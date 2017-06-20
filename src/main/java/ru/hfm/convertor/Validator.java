@@ -67,24 +67,31 @@ class Validator {
 
             for (int databaseItemIndex = currentDatabaseItemIndex; databaseItemIndex <= databaseArray.length; databaseItemIndex++) {
 
-                DataRecord databaseDataRecord = databaseArray[databaseItemIndex];
-                Integer databaseSourceFMAccount = databaseDataRecord.getSourceFMAccount();
-                String databaseSourceICP = databaseDataRecord.getSourceICP();
+                if (currentDatabaseItemIndex <= databaseArray.length) {
 
-                if (inputSourceFMAccount.compareTo(databaseSourceFMAccount) == 0 & inputSourceICP.compareTo(databaseSourceICP) == 0) {
+                    DataRecord databaseDataRecord = databaseArray[databaseItemIndex];
+                    Integer databaseSourceFMAccount = databaseDataRecord.getSourceFMAccount();
+                    String databaseSourceICP = databaseDataRecord.getSourceICP();
 
-                    inputDataRecord.fillDataRecord(databaseDataRecord);
-                    currentDatabaseItemIndex = ++databaseItemIndex;
-                    break;
+                    if (inputSourceFMAccount.compareTo(databaseSourceFMAccount) == 0 & inputSourceICP.compareTo(databaseSourceICP) == 0) {
 
-                } else if (inputSourceFMAccount.compareTo(databaseSourceFMAccount) != 0 & inputSourceICP.compareTo(databaseSourceICP) != 0) {
+                        inputDataRecord.fillDataRecord(databaseDataRecord);
+                        currentDatabaseItemIndex = ++databaseItemIndex;
+                        break;
+
+                    } else if (inputSourceFMAccount.compareTo(databaseSourceFMAccount) != 0 ^ inputSourceICP.compareTo(databaseSourceICP) != 0) {
+
+                        currentDatabaseItemIndex = ++databaseItemIndex;
+                        break;
 
                     /*
                     * TODO
                     * Implement logging for log merge mistakes.
                     * */
 
-                }
+                    }
+
+                } else if (currentDatabaseItemIndex > databaseArray.length) break;
 
             }
 
