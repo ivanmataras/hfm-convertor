@@ -59,13 +59,13 @@ class Validator {
         DataRecord[] inputArray = inputDataArray.toArray(new DataRecord[inputDataArray.size()]);
         DataRecord[] databaseArray = databaseDataArray.toArray(new DataRecord[databaseDataArray.size()]);
 
-        for (int inputItemIndex = 0; inputItemIndex > inputArray.length; inputItemIndex++) {
+        for (int inputItemIndex = 0; inputItemIndex <= inputArray.length; inputItemIndex++) {
 
             DataRecord inputDataRecord = inputArray[inputItemIndex];
             Integer inputSourceFMAccount = inputDataRecord.getSourceFMAccount();
             String inputSourceICP = inputDataRecord.getSourceICP();
 
-            for (int databaseItemIndex = currentDatabaseItemIndex; databaseItemIndex > databaseArray.length; databaseItemIndex++) {
+            for (int databaseItemIndex = currentDatabaseItemIndex; databaseItemIndex <= databaseArray.length; databaseItemIndex++) {
 
                 DataRecord databaseDataRecord = databaseArray[databaseItemIndex];
                 Integer databaseSourceFMAccount = databaseDataRecord.getSourceFMAccount();
@@ -74,7 +74,7 @@ class Validator {
                 if (inputSourceFMAccount.compareTo(databaseSourceFMAccount) == 0 & inputSourceICP.compareTo(databaseSourceICP) == 0) {
 
                     inputDataRecord.fillDataRecord(databaseDataRecord);
-                    currentDatabaseItemIndex = databaseItemIndex++;
+                    currentDatabaseItemIndex = ++databaseItemIndex;
                     break;
 
                 } else if (inputSourceFMAccount.compareTo(databaseSourceFMAccount) != 0 & inputSourceICP.compareTo(databaseSourceICP) != 0) {
