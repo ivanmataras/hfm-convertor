@@ -37,9 +37,7 @@ class Validator {
     List<DataRecord> validate() {
 
         this.getReferenceDataFromDataBase();
-
         List<DataRecord> mergeResult = this.mergeDataUsingStandardBinarySearch();
-
         return mergeResult;
 
     }

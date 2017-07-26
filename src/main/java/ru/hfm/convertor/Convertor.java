@@ -50,7 +50,7 @@ public class Convertor {
     }
 
     private void write() {
-        this.writer = new Writer();
+        this.writer = new Writer(this.parameters, this.dataArray);
 
     }
 
