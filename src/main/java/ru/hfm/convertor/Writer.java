@@ -19,10 +19,12 @@ class Writer {
     private Parameters parameters;
     private File file;
     private List<DataRecord> dataArray;
+    private StringBuilder resultString;
 
     Writer(Parameters parameters, List<DataRecord> dataArray) {
         this.parameters = parameters;
         this.dataArray = dataArray;
+        this.resultString = new StringBuilder(128);
     }
 
     void setFile() {
@@ -50,7 +52,8 @@ class Writer {
                 while (dataArrayIterator.hasNext()) {
 
                     DataRecord dataRecord = dataArrayIterator.next();
-
+                    String resultStringLine = constructLine(dataRecord);
+                    bufferedWriter.newLine();
 
 
                 }
@@ -68,9 +71,19 @@ class Writer {
 
     private String constructLine(DataRecord dataRecord) {
 
-        String line = "";
-        return line;
+        this.resultString.append(dataRecord.getSourceFMEntity());
+        this.resultString.append(dataRecord.getSourceFMAccount());
+        this.resultString.append(dataRecord.getSourceICP());
+        this.resultString.append(dataRecord.getSourceCustom1());
+        this.resultString.append(dataRecord.getSourceCustom2());
+        this.resultString.append(dataRecord.getSourceCustom3());
+        this.resultString.append(dataRecord.getSourceCustom4());
+        this.resultString.append(dataRecord.getAmount());
 
+        String resultStringLine = new String(resultString);
+        resultString.delete(0, resultString.length() - 1);
+
+        return resultStringLine;
     }
 
 }
