@@ -20,13 +20,19 @@ public class LauncherTest {
 
     Parameters parameters;
     Convertor convertor;
-    private String XLSXFilePath;
+    private String inputFilePath;
+    private String outputFilePath;
     private String connectionString;
 
+    @Before
+    public void setInputFilePath() {
+        inputFilePath = getClass().getResource("/test_01.xlsx").getPath();
+        //inputFilePath = "E:\\Development\\HFM convertor project\\HFM март 2017\\Расшифровка  МАРТ 2017.xlsx";
+    }
 
     @Before
-    public void setXLSXFilePath() {
-        XLSXFilePath = getClass().getResource("/test_01.xlsx").getPath();
+    public void setOutputFilePath() {
+        outputFilePath = "E:\\Development\\HFM convertor project\\test\\output\\output_test.txt";
     }
 
     @Before
@@ -39,9 +45,8 @@ public class LauncherTest {
 
         this.parameters = new Parameters();
 
-        this.parameters.setInputFile(this.XLSXFilePath);
-        //this.parameters.setInputFile("E:\\Development\\HFM convertor project\\HFM март 2017\\Расшифровка  МАРТ 2017.xlsx");
-        this.parameters.setOutputFile("E:\\Development\\HFM convertor project\\HFM март 2017\\output.txt");
+        this.parameters.setInputFile(this.inputFilePath);
+        this.parameters.setOutputFile(this.outputFilePath);
         this.parameters.setConnectionString(this.connectionString);
         this.parameters.setSheetName("загр баланс перемеш");
         this.parameters.setSectionName("BALANCE_LOCSTAT");

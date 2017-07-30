@@ -51,7 +51,8 @@ public class Convertor {
 
     private void write() {
         this.writer = new Writer(this.parameters, this.dataArray);
-
+        this.writer.setFile();
+        this.writer.writeFile();
     }
 
     private Parameters getParameters() {
