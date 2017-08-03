@@ -77,7 +77,6 @@ class Writer {
             ioException.printStackTrace();
         }
 
-
     }
 
     private StringBuilder constructLine(DataRecord dataRecord) {
